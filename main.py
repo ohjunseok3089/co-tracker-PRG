@@ -12,7 +12,7 @@ from cotracker.predictor import CoTrackerPredictor
 if __name__ == "__main__":
     video = read_video_from_path("../egocom/720p/EGOCOM/720p/5min_parts/vid_001__day_1__con_1__person_1_part1.MP4")
     # Get FPS using imageio
-    reader = imageio.get_reader('./assets/vid_001__day_1__con_1__person_1_part1.MP4')
+    reader = imageio.get_reader('../egocom/720p/EGOCOM/720p/5min_parts/vid_001__day_1__con_1__person_1_part1.MP4')
     fps = reader.get_meta_data()['fps']
     reader.close()
 

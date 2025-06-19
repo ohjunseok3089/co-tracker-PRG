@@ -28,6 +28,7 @@ if __name__ == "__main__":
     if torch.cuda.is_available():
         model = model.cuda()
         if torch.cuda.device_count() > 1:
+            print(f"Using {torch.cuda.device_count()} GPUs")
             model = torch.nn.DataParallel(model)
         video = video.cuda()
         

@@ -16,7 +16,7 @@ if __name__ == "__main__":
     fps = reader.get_meta_data()['fps']
     reader.close()
 
-    frames_per_minute = int(fps * 60)
+    frames_per_minute = int(fps * 10)
     video = video[:frames_per_minute]
     video = torch.from_numpy(video).permute(0, 3, 1, 2)[None].float()
     

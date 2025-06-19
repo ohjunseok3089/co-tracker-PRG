@@ -95,7 +95,6 @@ if __name__ == "__main__":
         grid_size=grid_size,
         grid_query_frame=grid_query_frame,
     )
-    pred_tracks, pred_visibility = model(video, grid_size=30)
     print("Tracks are computed")
 
     # save a video with predicted tracks

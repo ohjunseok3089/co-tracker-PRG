@@ -10,3 +10,7 @@
 */*/*/*/*/*/*/*/*/*.pyc
 */*/*/*/*/*/*/*/*/*/*.pyc
 */*/*/*/*/*/*/*/*/*/*/*.pyc
+
+assets/vid_001__day_1__con_1__person_1_part1.MP4
+checkpoints/scaled_offline.pth
+videos/teaser.mp4

@@ -27,6 +27,8 @@ if __name__ == "__main__":
     )
     if torch.cuda.is_available():
         model = model.cuda()
+        if torch.cuda.device_count() > 1:
+            model = torch.nn.DataParallel(model)
         video = video.cuda()
         
     pred_tracks, pred_visibility = model(video, grid_size=30)

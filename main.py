@@ -20,7 +20,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--video_path",
-        default="./assets/apple.mp4",
         help="path to a video",
     )
     parser.add_argument(

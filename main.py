@@ -43,9 +43,10 @@ if __name__ == "__main__":
     if args.video_path is None:
         video_path = "../egocom/720p/EGOCOM/720p/5min_parts/vid_001__day_1__con_1__person_1_part1.MP4"
         args.video_path = video_path
-    video = read_video_from_path("../egocom/720p/EGOCOM/720p/5min_parts/vid_001__day_1__con_1__person_1_part1.MP4")
+        
+    video = read_video_from_path(args.video_path)
     # Get FPS using imageio
-    reader = imageio.get_reader('../egocom/720p/EGOCOM/720p/5min_parts/vid_001__day_1__con_1__person_1_part1.MP4')
+    reader = imageio.get_reader(args.video_path)
     fps = reader.get_meta_data()['fps']
     reader.close()
 
@@ -56,7 +57,7 @@ if __name__ == "__main__":
     model = torch.hub.load("facebookresearch/co-tracker", "cotracker3_online")
     if torch.cuda.is_available():
         model = model.cuda()
-        video = video.cuda()
+        # video = video.cuda()
         
     window_frames = []
     

@@ -75,7 +75,7 @@ if __name__ == "__main__":
             grid_size=grid_size,
             grid_query_frame=grid_query_frame,
         )
-        
+    is_first_step = True
     for i, frame in enumerate(
         video
     ):

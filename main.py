@@ -16,6 +16,7 @@ from cotracker.utils.visualizer import Visualizer
 from cotracker.predictor import CoTrackerOnlinePredictor
 
 
+
 DEFAULT_DEVICE = (
     "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
 )
@@ -89,7 +90,7 @@ if __name__ == "__main__":
             is_first_step=is_first_step,
             grid_size=grid_size,
             grid_query_frame=grid_query_frame,
-            segm_mask=torch.from_numpy(segm_mask)[None, None],
+            # segm_mask=torch.from_numpy(segm_mask)[None, None],
         )
 
     # Iterating over video frames, processing one window at a time:

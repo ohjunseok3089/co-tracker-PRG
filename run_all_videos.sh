@@ -27,6 +27,8 @@ echo "================================"
 # Counter for processed videos
 count=0
 failed=0
+skipped=0
+video_index=0
 
 # Process each .mp4 file in the base directory
 for video_file in "$BASE_DIR"/*.mp4; do
@@ -34,6 +36,15 @@ for video_file in "$BASE_DIR"/*.mp4; do
     if [ ! -f "$video_file" ]; then
         echo "No .mp4 files found in $BASE_DIR"
         exit 1
+    fi
+    
+    # Skip the first 4 videos
+    if [ $video_index -lt 4 ]; then
+        video_basename=$(basename "$video_file" .mp4)
+        echo "Skipping video $((video_index + 1)): $video_basename"
+        ((video_index++))
+        ((skipped++))
+        continue
     fi
     
     # Extract the base filename without extension
@@ -60,7 +71,7 @@ for video_file in "$BASE_DIR"/*.mp4; do
     python main.py \
         --video_path "$video_file" \
         --mask_path "$mask_file" \
-        --grid_size 10 \
+        --grid_size 30 \
         --grid_query_frame 0
     
     # Check if the command was successful
@@ -72,11 +83,13 @@ for video_file in "$BASE_DIR"/*.mp4; do
         ((failed++))
     fi
     
+    ((video_index++))
     echo "--------------------------------"
 done
 
 echo "================================"
 echo "Batch processing completed!"
+echo "Skipped first 4 videos: $skipped videos"
 echo "Successfully processed: $count videos"
 echo "Failed: $failed videos"
 echo "Output videos saved in: ./processed_videos/" 

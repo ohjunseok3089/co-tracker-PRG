@@ -60,7 +60,7 @@ for video_file in "$BASE_DIR"/*.mp4; do
     python main.py \
         --video_path "$video_file" \
         --mask_path "$mask_file" \
-        --grid_size 10 \
+        --grid_size 30 \
         --grid_query_frame 0
     
     # Check if the command was successful

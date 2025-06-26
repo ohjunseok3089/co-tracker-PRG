@@ -120,9 +120,10 @@ if __name__ == "__main__":
     # Iterating over video frames, processing one window at a time:
     is_first_step = True
     fps, num_frames = extract_video_info(args.video_path)
+    full_vid = read_video_from_path(args.video_path)
     start_frame = 0
     while True:
-        video, end_frame = extract_frames(video, FRAMES_INTERVAL, fps, start_frame, num_frames)
+        video, end_frame = extract_frames(full_vid, FRAMES_INTERVAL, fps, start_frame, num_frames)
         if end_frame >= num_frames:
             break
         for i, frame in enumerate(video):

@@ -94,6 +94,7 @@ if __name__ == "__main__":
             break
         for i, frame in enumerate(video):
             if i % model.step == 0 and i != 0:
+                print(f"Processing frames from {start_frame} to {end_frame}")
                 pred_tracks, pred_visibility = _process_step(
                     window_frames,
                     is_first_step,
@@ -121,3 +122,6 @@ if __name__ == "__main__":
         vis.visualize(
             video, pred_tracks, pred_visibility, query_frame=args.grid_query_frame, filename=f"{seq_name}_{start_frame}_{end_frame}.mp4"
         )
+        start_frame = end_frame
+        print(f"Processed frames from {start_frame} to {end_frame}")
+    print(f"Processed all frames from {start_frame} to {end_frame}")

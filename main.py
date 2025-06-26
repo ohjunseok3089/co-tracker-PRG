@@ -50,16 +50,20 @@ if __name__ == "__main__":
     if not os.path.isfile(args.video_path):
         raise ValueError("Video file does not exist")
 
+    print("Loading model...")
     if args.checkpoint is not None:
         model = CoTrackerOnlinePredictor(checkpoint=args.checkpoint)
     else:
         model = torch.hub.load("facebookresearch/co-tracker", "cotracker3_online")
+    print("Model loaded.")
+
+    print(f"Moving model to device: {DEFAULT_DEVICE}")
     model = model.to(DEFAULT_DEVICE)
+    print("Model moved to device.")
 
     window_frames = []
     if args.mask_path is not None:
         segm_mask = np.array(Image.open(args.mask_path))
-        
         print(f"Original segm_mask shape: {segm_mask.shape}")
         if segm_mask.ndim == 4:
             segm_mask_gray = segm_mask[..., 0, 0] if segm_mask.shape[3] == 1 else segm_mask[..., 0]
@@ -74,10 +78,13 @@ if __name__ == "__main__":
         print(f"Model input mask shape: {segm_mask_model.shape}")
 
         segm_mask = segm_mask_model
+        print("Mask processed.")
     else:
         segm_mask = None
+        print("No mask provided.")
         
     def _process_step(window_frames, is_first_step, grid_size, grid_query_frame):
+        print(f"Preparing video chunk for _process_step (is_first_step={is_first_step})")
         video_chunk = (
             torch.tensor(
                 np.stack(window_frames[-model.step * 2 :]), device=DEFAULT_DEVICE
@@ -85,13 +92,16 @@ if __name__ == "__main__":
             .float()
             .permute(0, 3, 1, 2)[None]
         )  # (1, T, 3, H, W)
-        return model(
+        print("Calling model in _process_step...")
+        result = model(
             video_chunk,
             is_first_step=is_first_step,
             grid_size=grid_size,
             grid_query_frame=grid_query_frame,
             # segm_mask=torch.from_numpy(segm_mask)[None, None],
         )
+        print("Model call in _process_step completed.")
+        return result
 
     # Iterating over video frames, processing one window at a time:
     is_first_step = True
@@ -102,30 +112,37 @@ if __name__ == "__main__":
         )
     ):
         if i % model.step == 0 and i != 0:
+            print(f"Calling _process_step at frame {i} (is_first_step={is_first_step})")
             pred_tracks, pred_visibility = _process_step(
                 window_frames,
                 is_first_step,
                 grid_size=args.grid_size,
                 grid_query_frame=args.grid_query_frame,
             )
+            print(f"_process_step completed at frame {i}")
             is_first_step = False
         window_frames.append(frame)
     # Processing the final video frames in case video length is not a multiple of model.step
+    print("Calling _process_step for final frames...")
     pred_tracks, pred_visibility = _process_step(
         window_frames[-(i % model.step) - model.step - 1 :],
         is_first_step,
         grid_size=args.grid_size,
         grid_query_frame=args.grid_query_frame,
     )
+    print("_process_step for final frames completed.")
 
     print("Tracks are computed")
 
     # save a video with predicted tracks
     seq_name = args.video_path.split("/")[-1]
+    print("Preparing video tensor for visualization...")
     video = torch.tensor(np.stack(window_frames), device=DEFAULT_DEVICE).permute(
         0, 3, 1, 2
     )[None]
+    print("Saving video with predicted tracks...")
     vis = Visualizer(save_dir="./processed_videos", pad_value=120, linewidth=3)
     vis.visualize(
         video, pred_tracks, pred_visibility, query_frame=args.grid_query_frame, filename=args.video_path.split("/")[-1]
     )
+    print("Video saved.")

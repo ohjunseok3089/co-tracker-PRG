@@ -98,7 +98,6 @@ if __name__ == "__main__":
         print("No mask provided.")
         
     def _process_step(window_frames, is_first_step, grid_size, grid_query_frame):
-        print(f"Preparing video chunk for _process_step (is_first_step={is_first_step})")
         video_chunk = (
             torch.tensor(
                 np.stack(window_frames[-model.step * 2 :]), device=DEFAULT_DEVICE
@@ -106,7 +105,6 @@ if __name__ == "__main__":
             .float()
             .permute(0, 3, 1, 2)[None]
         )  # (1, T, 3, H, W)
-        print("Calling model in _process_step...")
         result = model(
             video_chunk,
             is_first_step=is_first_step,
@@ -114,11 +112,9 @@ if __name__ == "__main__":
             grid_query_frame=grid_query_frame,
             # segm_mask=torch.from_numpy(segm_mask)[None, None],
         )
-        print("Model call in _process_step completed.")
         return result
 
     # Iterating over video frames, processing one window at a time:
-    is_first_step = True
     fps, num_frames = extract_video_info(args.video_path)
     full_vid = read_video_from_path(args.video_path)
     start_frame = 0
@@ -129,6 +125,9 @@ if __name__ == "__main__":
         
         # Reset window_frames for each segment
         window_frames = []
+        
+        # Reset is_first_step for each segment (True for first segment, False for others)
+        is_first_step = (start_frame == 0)
         
         for i, frame in enumerate(video):
             if i % model.step == 0 and i != 0:

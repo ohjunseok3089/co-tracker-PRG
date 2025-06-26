@@ -84,14 +84,47 @@ process_group() {
     echo "[GPU $gpu_id] Done. Successfully processed: $count, Failed: $failed"
 }
 
-# Launch 4 parallel screen sessions, one for each GPU
+# Launch 4 parallel screen sessions, one for each GPU, using temp scripts for robust argument passing and logging
 for ((gpu=0; gpu<num_gpus; gpu++)); do
     group_videos=(${groups[$gpu]})
     if [ ${#group_videos[@]} -eq 0 ]; then
         continue
     fi
-    screen -dmS cotracker_gpu$gpu bash -c "$(declare -f process_group); process_group $gpu ${group_videos[@]}"
-    echo "Launched screen session 'cotracker_gpu$gpu' for GPU $gpu with ${#group_videos[@]} videos."
+    temp_script="cotracker_gpu${gpu}_run.sh"
+    echo "#!/bin/bash" > $temp_script
+    echo "MASK_DIR=\"$MASK_DIR\"" >> $temp_script
+    echo "count=0" >> $temp_script
+    echo "failed=0" >> $temp_script
+    echo "" >> $temp_script
+    for video_file in "${group_videos[@]}"; do
+        echo "video_file=\"$video_file\"" >> $temp_script
+        echo "video_basename=\$(basename \"\$video_file\" .mp4)" >> $temp_script
+        echo "mask_file=\"\$MASK_DIR/\${video_basename}.png\"" >> $temp_script
+        echo "echo [GPU $gpu] Processing video: \$video_basename" >> $temp_script
+        echo "echo [GPU $gpu] Video path: \$video_file" >> $temp_script
+        echo "echo [GPU $gpu] Mask path: \$mask_file" >> $temp_script
+        echo "if [ ! -f \"\$mask_file\" ]; then" >> $temp_script
+        echo "  echo [GPU $gpu] Warning: Mask file \$mask_file not found for video \$video_basename" >> $temp_script
+        echo "  echo [GPU $gpu] Skipping this video..." >> $temp_script
+        echo "  echo --------------------------------" >> $temp_script
+        echo "  ((failed++))" >> $temp_script
+        echo "  continue" >> $temp_script
+        echo "fi" >> $temp_script
+        echo "echo [GPU $gpu] Running CoTracker on \$video_basename..." >> $temp_script
+        echo "CUDA_VISIBLE_DEVICES=$gpu python main.py --video_path \"\$video_file\" --mask_path \"\$mask_file\" --grid_size 30 --grid_query_frame 0" >> $temp_script
+        echo "if [ \$? -eq 0 ]; then" >> $temp_script
+        echo "  echo [GPU $gpu] ✓ Successfully processed \$video_basename" >> $temp_script
+        echo "  ((count++))" >> $temp_script
+        echo "else" >> $temp_script
+        echo "  echo [GPU $gpu] ✗ Failed to process \$video_basename" >> $temp_script
+        echo "  ((failed++))" >> $temp_script
+        echo "fi" >> $temp_script
+        echo "echo --------------------------------" >> $temp_script
+    done
+    echo "echo [GPU $gpu] Done. Successfully processed: \$count, Failed: \$failed" >> $temp_script
+    chmod +x $temp_script
+    screen -dmS cotracker_gpu$gpu bash -c "./$temp_script &> cotracker_gpu${gpu}.log"
+    echo "Launched screen session 'cotracker_gpu$gpu' for GPU $gpu with ${#group_videos[@]} videos. Log: cotracker_gpu${gpu}.log"
 done
 
 echo "================================"

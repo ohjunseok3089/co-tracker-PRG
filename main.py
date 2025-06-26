@@ -115,61 +115,51 @@ if __name__ == "__main__":
         return result
 
     # Iterating over video frames, processing one window at a time:
+    is_first_step = True
     fps, num_frames = extract_video_info(args.video_path)
     full_vid = read_video_from_path(args.video_path)
-    start_frame = 0
 
-    while start_frame < num_frames:
-        print(f"Processing frames from {start_frame} to {min(start_frame + int(fps * FRAMES_INTERVAL), num_frames)}")
-        video, end_frame = extract_frames(full_vid, FRAMES_INTERVAL, fps, start_frame, num_frames)
-        
-        # Reset window_frames for each segment
-        window_frames = []
-        
-        # Reset is_first_step for each segment (True for first segment, False for others)
-        is_first_step = (start_frame == 0)
-        
-        for i, frame in enumerate(video):
-            if i % model.step == 0 and i != 0:
-                print(f"Calling _process_step at frame {i} (is_first_step={is_first_step})")
-                pred_tracks, pred_visibility = _process_step(
-                    window_frames,
-                    is_first_step,
-                    grid_size=args.grid_size,
-                    grid_query_frame=args.grid_query_frame,
-                )
-                print(f"_process_step completed at frame {i}")
-                is_first_step = False
-            window_frames.append(frame)
-        
-        # Processing the final video frames in case video length is not a multiple of model.step
-        if len(window_frames) > 0:
-            print("Calling _process_step for final frames...")
+    # Process the entire video as one segment to avoid model state issues
+    print(f"Processing entire video: {num_frames} frames")
+    window_frames = []
+
+    for i, frame in enumerate(full_vid):
+        if i % model.step == 0 and i != 0:
+            print(f"Calling _process_step at frame {i} (is_first_step={is_first_step})")
             pred_tracks, pred_visibility = _process_step(
                 window_frames,
                 is_first_step,
                 grid_size=args.grid_size,
                 grid_query_frame=args.grid_query_frame,
             )
-            print("_process_step for final frames completed.")
+            print(f"_process_step completed at frame {i}")
+            is_first_step = False
+        window_frames.append(frame)
 
-        print("Tracks are computed")
-
-        # save a video with predicted tracks
-        seq_name = args.video_path.split("/")[-1]
-        print("Preparing video tensor for visualization...")
-        video_tensor = torch.tensor(np.stack(window_frames), device=DEFAULT_DEVICE).permute(
-            0, 3, 1, 2
-        )[None]
-        print("Saving video with predicted tracks...")
-        vis = Visualizer(save_dir="./saved_videos", pad_value=120, linewidth=3)
-        vis.visualize(
-            video_tensor, pred_tracks, pred_visibility, query_frame=args.grid_query_frame, filename=f"{seq_name}_{start_frame}_{end_frame}.mp4"
+    # Processing the final video frames in case video length is not a multiple of model.step
+    if len(window_frames) > 0:
+        print("Calling _process_step for final frames...")
+        pred_tracks, pred_visibility = _process_step(
+            window_frames,
+            is_first_step,
+            grid_size=args.grid_size,
+            grid_query_frame=args.grid_query_frame,
         )
-        print(f"Video saved to ./saved_videos/{seq_name}_{start_frame}_{end_frame}.mp4")
-        
-        # Update start_frame for next iteration
-        start_frame = end_frame
-        print(f"Processed frames from {start_frame} to {end_frame}")
+        print("_process_step for final frames completed.")
 
-    print(f"Processed all frames from 0 to {num_frames}")
+    print("Tracks are computed")
+
+    # save a video with predicted tracks
+    seq_name = args.video_path.split("/")[-1]
+    print("Preparing video tensor for visualization...")
+    video_tensor = torch.tensor(np.stack(window_frames), device=DEFAULT_DEVICE).permute(
+        0, 3, 1, 2
+    )[None]
+    print("Saving video with predicted tracks...")
+    vis = Visualizer(save_dir="./saved_videos", pad_value=120, linewidth=3)
+    vis.visualize(
+        video_tensor, pred_tracks, pred_visibility, query_frame=args.grid_query_frame, filename=f"{seq_name}.mp4"
+    )
+    print(f"Video saved to ./saved_videos/{seq_name}.mp4")
+
+    print(f"Processed entire video: {num_frames} frames")

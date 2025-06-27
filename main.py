@@ -127,8 +127,14 @@ if __name__ == "__main__":
         if hasattr(model, 'reset'):
             model.reset()
         else:
+            # Reinitialize the model's online processing state properly
+            if hasattr(model, 'model') and hasattr(model.model, 'init_video_online_processing'):
+                model.model.init_video_online_processing()
+            # Reset queries properly instead of setting to None
             if hasattr(model, 'queries'):
-                model.queries = None
+                delattr(model, 'queries')
+            if hasattr(model, 'N'):
+                delattr(model, 'N')
             if hasattr(model, 'model') and hasattr(model.model, 'reset'):
                 model.model.reset()
         

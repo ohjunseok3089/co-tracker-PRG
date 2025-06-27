@@ -1,18 +1,11 @@
 #!/bin/bash
 
 # Set the base directory path
-BASE_DIR="/mas/robots/prg-egocom/egocom-pre-process/egocom_asset/"
-MASK_DIR="$BASE_DIR/masked_values"
+BASE_DIR="/mas/robots/prg-egocom/EGOCOM/720p/5min_parts/dataset/"
 
 # Check if the base directory exists
 if [ ! -d "$BASE_DIR" ]; then
     echo "Error: Directory $BASE_DIR does not exist!"
-    exit 1
-fi
-
-# Check if the mask directory exists
-if [ ! -d "$MASK_DIR" ]; then
-    echo "Error: Directory $MASK_DIR does not exist!"
     exit 1
 fi
 
@@ -21,7 +14,6 @@ mkdir -p processed_videos
 
 echo "Starting batch processing of videos in parallel (4 GPUs)..."
 echo "Base directory: $BASE_DIR"
-echo "Mask directory: $MASK_DIR"
 echo "================================"
 
 # Gather all .mp4 files into an array
@@ -55,21 +47,12 @@ process_group() {
     local failed=0
     for video_file in "${videos[@]}"; do
         video_basename=$(basename "$video_file" .mp4)
-        mask_file="$MASK_DIR/${video_basename}.png"
         echo "[GPU $gpu_id] Processing video: $video_basename"
         echo "[GPU $gpu_id] Video path: $video_file"
-        echo "[GPU $gpu_id] Mask path: $mask_file"
-        if [ ! -f "$mask_file" ]; then
-            echo "[GPU $gpu_id] Warning: Mask file $mask_file not found for video $video_basename"
-            echo "[GPU $gpu_id] Skipping this video..."
-            echo "--------------------------------"
-            ((failed++))
-            continue
-        fi
+
         echo "[GPU $gpu_id] Running CoTracker on $video_basename..."
         CUDA_VISIBLE_DEVICES=$gpu_id python main.py \
             --video_path "$video_file" \
-            --mask_path "$mask_file" \
             --grid_size 30 \
             --grid_query_frame 0
         if [ $? -eq 0 ]; then
@@ -92,26 +75,16 @@ for ((gpu=0; gpu<num_gpus; gpu++)); do
     fi
     temp_script="cotracker_gpu${gpu}_run.sh"
     echo "#!/bin/bash" > $temp_script
-    echo "MASK_DIR=\"$MASK_DIR\"" >> $temp_script
     echo "count=0" >> $temp_script
     echo "failed=0" >> $temp_script
     echo "" >> $temp_script
     for video_file in "${group_videos[@]}"; do
         echo "video_file=\"$video_file\"" >> $temp_script
         echo "video_basename=\$(basename \"\$video_file\" .mp4)" >> $temp_script
-        echo "mask_file=\"\$MASK_DIR/\${video_basename}.png\"" >> $temp_script
         echo "echo [GPU $gpu] Processing video: \$video_basename" >> $temp_script
         echo "echo [GPU $gpu] Video path: \$video_file" >> $temp_script
-        echo "echo [GPU $gpu] Mask path: \$mask_file" >> $temp_script
-        echo "if [ ! -f \"\$mask_file\" ]; then" >> $temp_script
-        echo "  echo [GPU $gpu] Warning: Mask file \$mask_file not found for video \$video_basename" >> $temp_script
-        echo "  echo [GPU $gpu] Skipping this video..." >> $temp_script
-        echo "  echo --------------------------------" >> $temp_script
-        echo "  ((failed++))" >> $temp_script
-        echo "  continue" >> $temp_script
-        echo "fi" >> $temp_script
         echo "echo [GPU $gpu] Running CoTracker on \$video_basename..." >> $temp_script
-        echo "CUDA_VISIBLE_DEVICES=$gpu python main.py --video_path \"\$video_file\" --mask_path \"\$mask_file\" --grid_size 30 --grid_query_frame 0" >> $temp_script
+        echo "CUDA_VISIBLE_DEVICES=$gpu python main.py --video_path \"\$video_file\" --grid_size 30 --grid_query_frame 0" >> $temp_script
         echo "if [ \$? -eq 0 ]; then" >> $temp_script
         echo "  echo [GPU $gpu] ✓ Successfully processed \$video_basename" >> $temp_script
         echo "  ((count++))" >> $temp_script

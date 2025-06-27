@@ -124,14 +124,15 @@ if __name__ == "__main__":
         print(f"Processing frames from {start_frame} to {min(start_frame + int(fps * FRAMES_INTERVAL), num_frames)}")
         video, end_frame = extract_frames(full_vid, FRAMES_INTERVAL, fps, start_frame, num_frames)
         
-        # Create a fresh model instance for each segment to avoid state issues
-        print("Creating fresh model instance for this segment...")
-        if args.checkpoint is not None:
-            model = CoTrackerOnlinePredictor(checkpoint=args.checkpoint)
+        if hasattr(model, 'reset'):
+            model.reset()
         else:
-            model = torch.hub.load("facebookresearch/co-tracker", "cotracker3_online")
-        model = model.to(DEFAULT_DEVICE)
-        print("Fresh model created and moved to device.")
+            if hasattr(model, 'queries'):
+                model.queries = None
+            if hasattr(model, 'model') and hasattr(model.model, 'reset'):
+                model.model.reset()
+        
+        print("Model state reset for this segment.")
         
         window_frames = []
         

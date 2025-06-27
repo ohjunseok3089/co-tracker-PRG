@@ -130,7 +130,6 @@ if __name__ == "__main__":
             # Reinitialize the model's online processing state properly
             if hasattr(model, 'model') and hasattr(model.model, 'init_video_online_processing'):
                 model.model.init_video_online_processing()
-            # Reset queries properly instead of setting to None
             if hasattr(model, 'queries'):
                 delattr(model, 'queries')
             if hasattr(model, 'N'):
@@ -142,7 +141,7 @@ if __name__ == "__main__":
         
         window_frames = []
         
-        is_first_step = (start_frame == 0)
+        is_first_step = True
         
         for i, frame in enumerate(video):
             if i % model.step == 0 and i != 0:

@@ -17,7 +17,7 @@ echo "Base directory: $BASE_DIR"
 echo "================================"
 
 # Gather all .mp4 files into an array
-mapfile -t video_files < <(find "$BASE_DIR" -maxdepth 1 -name '*.mp4' | sort)
+mapfile -t video_files < <(find "$BASE_DIR" -maxdepth 1 -name '*.MP4' | sort)
 num_videos=${#video_files[@]}
 
 if [ "$num_videos" -eq 0 ]; then

@@ -16,3 +16,5 @@ checkpoints/scaled_offline.pth
 videos/teaser.mp4
 
 vid_12_day_1_person_7_p2.mp4_1200_1500.mp4.mp4
+*.jpg
+*.png

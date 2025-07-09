@@ -98,7 +98,7 @@ if __name__ == "__main__":
         segm_mask = None
         print("No mask provided.")
         
-    def _process_step(window_frames, is_first_step, grid_size, grid_query_frame):
+    def _process_step(window_frames, is_first_step, grid_size, grid_query_frame, queries):
         video_chunk = (
             torch.tensor(
                 np.stack(window_frames[-model.step * 2 :]), device=DEFAULT_DEVICE
@@ -111,6 +111,7 @@ if __name__ == "__main__":
             is_first_step=is_first_step,
             grid_size=grid_size,
             grid_query_frame=grid_query_frame,
+            queries=queries,
             # segm_mask=torch.from_numpy(segm_mask)[None, None],
         )
         return result
@@ -118,8 +119,23 @@ if __name__ == "__main__":
     # Iterating over video frames, processing one window at a time:
     fps, num_frames = extract_video_info(args.video_path)
     full_vid = read_video_from_path(args.video_path)
+    
+    if full_vid is None or len(full_vid) == 0:
+        raise ValueError("Failed to load video or video is empty")
+    
+    # Calculate center coordinates for queries
+    frame_height, frame_width = full_vid[0].shape[:2]
+    center_x = frame_width / 2.0
+    center_y = frame_height / 2.0
+    
+    # Set queries to center of video [time, x coord, y coord]
+    queries = torch.tensor([
+        [0., center_x, center_y]
+    ], device=DEFAULT_DEVICE)
+    print(f"Video dimensions: {frame_width}x{frame_height}")
+    print(f"Center coordinates: ({center_x}, {center_y})")
+    
     start_frame = 0
-
     while start_frame < num_frames:
         print(f"Processing frames from {start_frame} to {min(start_frame + int(fps * FRAMES_INTERVAL), num_frames)}")
         video, end_frame = extract_frames(full_vid, FRAMES_INTERVAL, fps, start_frame, num_frames)
@@ -151,6 +167,7 @@ if __name__ == "__main__":
                     is_first_step,
                     grid_size=args.grid_size,
                     grid_query_frame=args.grid_query_frame,
+                    queries=queries,
                 )
                 print(f"_process_step completed at frame {i}")
                 is_first_step = False
@@ -163,6 +180,7 @@ if __name__ == "__main__":
                 is_first_step,
                 grid_size=args.grid_size,
                 grid_query_frame=args.grid_query_frame,
+                queries=queries,
             )
             print("_process_step for final frames completed.")
 
@@ -175,11 +193,11 @@ if __name__ == "__main__":
             0, 3, 1, 2
         )[None]
         print("Saving video with predicted tracks...")
-        vis = Visualizer(save_dir="./saved_videos", pad_value=120, linewidth=3)
+        vis = Visualizer(save_dir="/mas/robots/prg-egocom/EGOCOM/720p/5min_parts/dataset/saved_videos", pad_value=120, linewidth=3)
         vis.visualize(
             video_tensor, pred_tracks, pred_visibility, query_frame=args.grid_query_frame, filename=f"{seq_name}_{start_frame}_{end_frame}.mp4"
         )
-        print(f"Video saved to ./saved_videos/{seq_name}_{start_frame}_{end_frame}.mp4")
+        print(f"Video saved to /mas/robots/prg-egocom/EGOCOM/720p/5min_parts/dataset/saved_videos/{seq_name}_{start_frame}_{end_frame}.mp4")
         
         # Update start_frame for next iteration
         start_frame = end_frame

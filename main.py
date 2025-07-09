@@ -131,7 +131,9 @@ if __name__ == "__main__":
     # Set queries to center of video [time, x coord, y coord]
     queries = torch.tensor([
         [0., center_x, center_y]
-    ], device=DEFAULT_DEVICE)
+    ])
+    if torch.cuda.is_available():
+        queries = queries.cuda()
     print(f"Video dimensions: {frame_width}x{frame_height}")
     print(f"Center coordinates: ({center_x}, {center_y})")
     

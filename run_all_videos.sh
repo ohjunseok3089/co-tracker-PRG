@@ -79,27 +79,29 @@ for ((gpu=0; gpu<num_gpus; gpu++)); do
     echo "failed=0" >> $temp_script
     echo "" >> $temp_script
     for video_file in "${group_videos[@]}"; do
-        echo "video_file=\"$video_file\"" >> $temp_script
+        # Properly escape the video file path for the script
+        escaped_video_file=$(printf '%q' "$video_file")
+        echo "video_file=$escaped_video_file" >> $temp_script
         echo "video_basename=\$(basename \"\$video_file\")" >> $temp_script
         echo "video_basename=\${video_basename%.*}" >> $temp_script
-        echo "echo [GPU $gpu] Processing video: \$video_basename" >> $temp_script
-        echo "echo [GPU $gpu] Video path: \$video_file" >> $temp_script
-        echo "echo [GPU $gpu] Running CoTracker on \$video_basename..." >> $temp_script
+        echo "echo \"[GPU $gpu] Processing video: \$video_basename\"" >> $temp_script
+        echo "echo \"[GPU $gpu] Video path: \$video_file\"" >> $temp_script
+        echo "echo \"[GPU $gpu] Running CoTracker on \$video_basename...\"" >> $temp_script
         echo "CUDA_VISIBLE_DEVICES=$gpu python main.py --video_path \"\$video_file\" --grid_size 30 --grid_query_frame 0" >> $temp_script
         echo "exit_code=\$?" >> $temp_script
         echo "if [ \$exit_code -eq 0 ]; then" >> $temp_script
-        echo "  echo [GPU $gpu] ✓ Successfully processed \$video_basename" >> $temp_script
+        echo "  echo \"[GPU $gpu] ✓ Successfully processed \$video_basename\"" >> $temp_script
         echo "  ((count++))" >> $temp_script
         echo "else" >> $temp_script
-        echo "  echo [GPU $gpu] ✗ Failed to process \$video_basename (exit code: \$exit_code)" >> $temp_script
+        echo "  echo \"[GPU $gpu] ✗ Failed to process \$video_basename (exit code: \$exit_code)\"" >> $temp_script
         echo "  if [ \$exit_code -eq 1 ]; then" >> $temp_script
-        echo "    echo [GPU $gpu] → Video appears to be corrupted, continuing with next video..." >> $temp_script
+        echo "    echo \"[GPU $gpu] → Video appears to be corrupted, continuing with next video...\"" >> $temp_script
         echo "  fi" >> $temp_script
         echo "  ((failed++))" >> $temp_script
         echo "fi" >> $temp_script
-        echo "echo --------------------------------" >> $temp_script
+        echo "echo \"--------------------------------\"" >> $temp_script
     done
-    echo "echo [GPU $gpu] Done. Successfully processed: \$count, Failed: \$failed" >> $temp_script
+    echo "echo \"[GPU $gpu] Done. Successfully processed: \$count, Failed: \$failed\"" >> $temp_script
     chmod +x $temp_script
     screen -dmS cotracker_gpu$gpu bash -c "./$temp_script &> cotracker_gpu${gpu}.log"
     echo "Launched screen session 'cotracker_gpu$gpu' for GPU $gpu with ${#group_videos[@]} videos. Log: cotracker_gpu${gpu}.log"

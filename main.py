@@ -152,6 +152,11 @@ if __name__ == "__main__":
         print(f"Processing frames from {start_frame} to {min(start_frame + int(fps * FRAMES_INTERVAL), num_frames)}")
         video, end_frame = extract_frames(full_vid, FRAMES_INTERVAL, fps, start_frame, num_frames)
         
+        # Skip if no frames to process
+        if end_frame <= start_frame or len(video) == 0:
+            print(f"No frames to process in segment {start_frame} to {end_frame}, skipping...")
+            break
+        
         if hasattr(model, 'reset'):
             model.reset()
         else:

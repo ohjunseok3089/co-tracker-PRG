@@ -22,11 +22,15 @@ DEFAULT_DEVICE = (
 FRAMES_INTERVAL = 10
 
 def extract_video_info(video_path):
-    reader = imageio.get_reader(video_path)
-    fps = reader.get_meta_data()['fps']
-    num_frames = reader.get_length()
-    reader.close()
-    return fps, num_frames
+    try:
+        reader = imageio.get_reader(video_path)
+        fps = reader.get_meta_data()['fps']
+        num_frames = reader.get_length()
+        reader.close()
+        return fps, num_frames
+    except Exception as e:
+        print(f"Error loading video {video_path}: {e}")
+        raise ValueError(f"Failed to load video: {video_path}")
 
 def extract_frames(video, seconds, fps, start_frame, num_frames):
     frames_to_extract = int(fps * seconds)
@@ -117,11 +121,16 @@ if __name__ == "__main__":
         return result
 
     # Iterating over video frames, processing one window at a time:
-    fps, num_frames = extract_video_info(args.video_path)
-    full_vid = read_video_from_path(args.video_path)
-    
-    if full_vid is None or len(full_vid) == 0:
-        raise ValueError("Failed to load video or video is empty")
+    try:
+        fps, num_frames = extract_video_info(args.video_path)
+        full_vid = read_video_from_path(args.video_path)
+        
+        if full_vid is None or len(full_vid) == 0:
+            raise ValueError("Failed to load video or video is empty")
+    except Exception as e:
+        print(f"Error processing video {args.video_path}: {e}")
+        print("Skipping this video due to corruption or loading issues.")
+        exit(1)
     
     # Calculate center coordinates for queries
     frame_height, frame_width = full_vid[0].shape[:2]
@@ -129,8 +138,9 @@ if __name__ == "__main__":
     center_y = frame_height / 2.0
     
     # Set queries to center of video [time, x coord, y coord]
+    # Model expects (B, N, D) where B=batch, N=num_queries, D=3 for [time, x, y]
     queries = torch.tensor([
-        [0., center_x, center_y]
+        [[0., center_x, center_y]]
     ])
     if torch.cuda.is_available():
         queries = queries.cuda()

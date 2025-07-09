@@ -16,12 +16,12 @@ echo "Starting batch processing of videos in parallel (4 GPUs)..."
 echo "Base directory: $BASE_DIR"
 echo "================================"
 
-# Gather all .mp4 files into an array
-mapfile -t video_files < <(find "$BASE_DIR" -maxdepth 1 -name '*.MP4' | sort)
+# Gather all video files into an array (both .mp4 and .MP4)
+mapfile -t video_files < <(find "$BASE_DIR" -maxdepth 1 \( -name '*.mp4' -o -name '*.MP4' \) | sort)
 num_videos=${#video_files[@]}
 
 if [ "$num_videos" -eq 0 ]; then
-    echo "No .mp4 files found in $BASE_DIR"
+    echo "No video files (.mp4 or .MP4) found in $BASE_DIR"
     exit 1
 fi
 
@@ -80,16 +80,21 @@ for ((gpu=0; gpu<num_gpus; gpu++)); do
     echo "" >> $temp_script
     for video_file in "${group_videos[@]}"; do
         echo "video_file=\"$video_file\"" >> $temp_script
-        echo "video_basename=\$(basename \"\$video_file\" .mp4)" >> $temp_script
+        echo "video_basename=\$(basename \"\$video_file\")" >> $temp_script
+        echo "video_basename=\${video_basename%.*}" >> $temp_script
         echo "echo [GPU $gpu] Processing video: \$video_basename" >> $temp_script
         echo "echo [GPU $gpu] Video path: \$video_file" >> $temp_script
         echo "echo [GPU $gpu] Running CoTracker on \$video_basename..." >> $temp_script
         echo "CUDA_VISIBLE_DEVICES=$gpu python main.py --video_path \"\$video_file\" --grid_size 30 --grid_query_frame 0" >> $temp_script
-        echo "if [ \$? -eq 0 ]; then" >> $temp_script
+        echo "exit_code=\$?" >> $temp_script
+        echo "if [ \$exit_code -eq 0 ]; then" >> $temp_script
         echo "  echo [GPU $gpu] ✓ Successfully processed \$video_basename" >> $temp_script
         echo "  ((count++))" >> $temp_script
         echo "else" >> $temp_script
-        echo "  echo [GPU $gpu] ✗ Failed to process \$video_basename" >> $temp_script
+        echo "  echo [GPU $gpu] ✗ Failed to process \$video_basename (exit code: \$exit_code)" >> $temp_script
+        echo "  if [ \$exit_code -eq 1 ]; then" >> $temp_script
+        echo "    echo [GPU $gpu] → Video appears to be corrupted, continuing with next video..." >> $temp_script
+        echo "  fi" >> $temp_script
         echo "  ((failed++))" >> $temp_script
         echo "fi" >> $temp_script
         echo "echo --------------------------------" >> $temp_script

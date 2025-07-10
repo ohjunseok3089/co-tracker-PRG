@@ -1,0 +1,7053 @@
+{
+  "metadata": {
+    "video_path": "vid_001__day_1__con_1__person_1_part1(1).MP4_0_300.mp4.mp4",
+    "total_frames": 306,
+    "target_color_rgb": [
+      255,
+      28,
+      48
+    ],
+    "fov_degrees": 104.0,
+    "processing_info": {
+      "detected_frames": 306,
+      "valid_movements": 306
+    }
+  },
+  "frames": [
+    {
+      "frame_index": 0,
+      "timestamp": 0.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          760,
+          480
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": null,
+        "red_position": null
+      }
+    },
+    {
+      "frame_index": 1,
+      "timestamp": 0.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          760,
+          480
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 0,
+        "red_position": [
+          760,
+          480
+        ]
+      }
+    },
+    {
+      "frame_index": 2,
+      "timestamp": 0.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          760,
+          480
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 1,
+        "red_position": [
+          760,
+          480
+        ]
+      }
+    },
+    {
+      "frame_index": 3,
+      "timestamp": 0.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          760,
+          480
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 2,
+        "red_position": [
+          760,
+          480
+        ]
+      }
+    },
+    {
+      "frame_index": 4,
+      "timestamp": 0.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          760,
+          480
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 3,
+        "red_position": [
+          760,
+          480
+        ]
+      }
+    },
+    {
+      "frame_index": 5,
+      "timestamp": 0.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          760,
+          480
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 4,
+        "red_position": [
+          760,
+          480
+        ]
+      }
+    },
+    {
+      "frame_index": 6,
+      "timestamp": 0.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          760,
+          480
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 5,
+        "red_position": [
+          760,
+          480
+        ]
+      }
+    },
+    {
+      "frame_index": 7,
+      "timestamp": 0.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          760,
+          480
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 6,
+        "red_position": [
+          760,
+          480
+        ]
+      }
+    },
+    {
+      "frame_index": 8,
+      "timestamp": 0.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          778,
+          490
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.0214951076298249,
+        "degrees": -1.231578947368421
+      },
+      "previous_frame": {
+        "index": 7,
+        "red_position": [
+          760,
+          480
+        ]
+      }
+    },
+    {
+      "frame_index": 9,
+      "timestamp": 0.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          802,
+          496
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0286601435064332,
+        "degrees": -1.6421052631578947
+      },
+      "previous_frame": {
+        "index": 8,
+        "red_position": [
+          778,
+          490
+        ]
+      }
+    },
+    {
+      "frame_index": 10,
+      "timestamp": 1.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          826,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0286601435064332,
+        "degrees": -1.6421052631578947
+      },
+      "previous_frame": {
+        "index": 9,
+        "red_position": [
+          802,
+          496
+        ]
+      }
+    },
+    {
+      "frame_index": 11,
+      "timestamp": 1.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          846,
+          502
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.02388345292202767,
+        "degrees": -1.368421052631579
+      },
+      "previous_frame": {
+        "index": 10,
+        "red_position": [
+          826,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 12,
+      "timestamp": 1.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          864,
+          506
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0214951076298249,
+        "degrees": -1.231578947368421
+      },
+      "previous_frame": {
+        "index": 11,
+        "red_position": [
+          846,
+          502
+        ]
+      }
+    },
+    {
+      "frame_index": 13,
+      "timestamp": 1.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          876,
+          512
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0143300717532166,
+        "degrees": -0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 12,
+        "red_position": [
+          864,
+          506
+        ]
+      }
+    },
+    {
+      "frame_index": 14,
+      "timestamp": 1.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          886,
+          518
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.011941726461013834,
+        "degrees": -0.6842105263157895
+      },
+      "previous_frame": {
+        "index": 13,
+        "red_position": [
+          876,
+          512
+        ]
+      }
+    },
+    {
+      "frame_index": 15,
+      "timestamp": 1.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          896,
+          524
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.011941726461013834,
+        "degrees": -0.6842105263157895
+      },
+      "previous_frame": {
+        "index": 14,
+        "red_position": [
+          886,
+          518
+        ]
+      }
+    },
+    {
+      "frame_index": 16,
+      "timestamp": 1.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          906,
+          530
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.011941726461013834,
+        "degrees": -0.6842105263157895
+      },
+      "previous_frame": {
+        "index": 15,
+        "red_position": [
+          896,
+          524
+        ]
+      }
+    },
+    {
+      "frame_index": 17,
+      "timestamp": 1.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          916,
+          534
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.011941726461013834,
+        "degrees": -0.6842105263157895
+      },
+      "previous_frame": {
+        "index": 16,
+        "red_position": [
+          906,
+          530
+        ]
+      }
+    },
+    {
+      "frame_index": 18,
+      "timestamp": 1.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          926,
+          538
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.011941726461013834,
+        "degrees": -0.6842105263157895
+      },
+      "previous_frame": {
+        "index": 17,
+        "red_position": [
+          916,
+          534
+        ]
+      }
+    },
+    {
+      "frame_index": 19,
+      "timestamp": 1.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          938,
+          544
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0143300717532166,
+        "degrees": -0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 18,
+        "red_position": [
+          926,
+          538
+        ]
+      }
+    },
+    {
+      "frame_index": 20,
+      "timestamp": 2.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          950,
+          550
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.0143300717532166,
+        "degrees": -0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 19,
+        "red_position": [
+          938,
+          544
+        ]
+      }
+    },
+    {
+      "frame_index": 21,
+      "timestamp": 2.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          958,
+          552
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.009553381168811067,
+        "degrees": -0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 20,
+        "red_position": [
+          950,
+          550
+        ]
+      }
+    },
+    {
+      "frame_index": 22,
+      "timestamp": 2.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          968,
+          554
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.011941726461013834,
+        "degrees": -0.6842105263157895
+      },
+      "previous_frame": {
+        "index": 21,
+        "red_position": [
+          958,
+          552
+        ]
+      }
+    },
+    {
+      "frame_index": 23,
+      "timestamp": 2.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          974,
+          556
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 22,
+        "red_position": [
+          968,
+          554
+        ]
+      }
+    },
+    {
+      "frame_index": 24,
+      "timestamp": 2.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          978,
+          558
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 23,
+        "red_position": [
+          974,
+          556
+        ]
+      }
+    },
+    {
+      "frame_index": 25,
+      "timestamp": 2.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          984,
+          558
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 24,
+        "red_position": [
+          978,
+          558
+        ]
+      }
+    },
+    {
+      "frame_index": 26,
+      "timestamp": 2.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          988,
+          564
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 25,
+        "red_position": [
+          984,
+          558
+        ]
+      }
+    },
+    {
+      "frame_index": 27,
+      "timestamp": 2.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          992,
+          570
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 26,
+        "red_position": [
+          988,
+          564
+        ]
+      }
+    },
+    {
+      "frame_index": 28,
+      "timestamp": 2.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          998,
+          576
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 27,
+        "red_position": [
+          992,
+          570
+        ]
+      }
+    },
+    {
+      "frame_index": 29,
+      "timestamp": 2.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1002,
+          574
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 28,
+        "red_position": [
+          998,
+          576
+        ]
+      }
+    },
+    {
+      "frame_index": 30,
+      "timestamp": 3.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1006,
+          568
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 29,
+        "red_position": [
+          1002,
+          574
+        ]
+      }
+    },
+    {
+      "frame_index": 31,
+      "timestamp": 3.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1008,
+          564
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 30,
+        "red_position": [
+          1006,
+          568
+        ]
+      }
+    },
+    {
+      "frame_index": 32,
+      "timestamp": 3.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1008,
+          564
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 31,
+        "red_position": [
+          1008,
+          564
+        ]
+      }
+    },
+    {
+      "frame_index": 33,
+      "timestamp": 3.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1010,
+          564
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 32,
+        "red_position": [
+          1008,
+          564
+        ]
+      }
+    },
+    {
+      "frame_index": 34,
+      "timestamp": 3.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1012,
+          560
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 33,
+        "red_position": [
+          1010,
+          564
+        ]
+      }
+    },
+    {
+      "frame_index": 35,
+      "timestamp": 3.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1014,
+          558
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 34,
+        "red_position": [
+          1012,
+          560
+        ]
+      }
+    },
+    {
+      "frame_index": 36,
+      "timestamp": 3.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1018,
+          556
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 35,
+        "red_position": [
+          1014,
+          558
+        ]
+      }
+    },
+    {
+      "frame_index": 37,
+      "timestamp": 3.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1020,
+          556
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 36,
+        "red_position": [
+          1018,
+          556
+        ]
+      }
+    },
+    {
+      "frame_index": 38,
+      "timestamp": 3.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1022,
+          554
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 37,
+        "red_position": [
+          1020,
+          556
+        ]
+      }
+    },
+    {
+      "frame_index": 39,
+      "timestamp": 3.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1024,
+          552
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 38,
+        "red_position": [
+          1022,
+          554
+        ]
+      }
+    },
+    {
+      "frame_index": 40,
+      "timestamp": 4.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1024,
+          552
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 39,
+        "red_position": [
+          1024,
+          552
+        ]
+      }
+    },
+    {
+      "frame_index": 41,
+      "timestamp": 4.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1026,
+          552
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 40,
+        "red_position": [
+          1024,
+          552
+        ]
+      }
+    },
+    {
+      "frame_index": 42,
+      "timestamp": 4.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1030,
+          552
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 41,
+        "red_position": [
+          1026,
+          552
+        ]
+      }
+    },
+    {
+      "frame_index": 43,
+      "timestamp": 4.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1034,
+          552
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 42,
+        "red_position": [
+          1030,
+          552
+        ]
+      }
+    },
+    {
+      "frame_index": 44,
+      "timestamp": 4.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1040,
+          550
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 43,
+        "red_position": [
+          1034,
+          552
+        ]
+      }
+    },
+    {
+      "frame_index": 45,
+      "timestamp": 4.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1044,
+          546
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 44,
+        "red_position": [
+          1040,
+          550
+        ]
+      }
+    },
+    {
+      "frame_index": 46,
+      "timestamp": 4.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1048,
+          542
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 45,
+        "red_position": [
+          1044,
+          546
+        ]
+      }
+    },
+    {
+      "frame_index": 47,
+      "timestamp": 4.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1050,
+          538
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 46,
+        "red_position": [
+          1048,
+          542
+        ]
+      }
+    },
+    {
+      "frame_index": 48,
+      "timestamp": 4.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1052,
+          534
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 47,
+        "red_position": [
+          1050,
+          538
+        ]
+      }
+    },
+    {
+      "frame_index": 49,
+      "timestamp": 4.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1054,
+          536
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 48,
+        "red_position": [
+          1052,
+          534
+        ]
+      }
+    },
+    {
+      "frame_index": 50,
+      "timestamp": 5.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1058,
+          540
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 49,
+        "red_position": [
+          1054,
+          536
+        ]
+      }
+    },
+    {
+      "frame_index": 51,
+      "timestamp": 5.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1062,
+          546
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 50,
+        "red_position": [
+          1058,
+          540
+        ]
+      }
+    },
+    {
+      "frame_index": 52,
+      "timestamp": 5.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1074,
+          554
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.0143300717532166,
+        "degrees": -0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 51,
+        "red_position": [
+          1062,
+          546
+        ]
+      }
+    },
+    {
+      "frame_index": 53,
+      "timestamp": 5.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1086,
+          560
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.0143300717532166,
+        "degrees": -0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 52,
+        "red_position": [
+          1074,
+          554
+        ]
+      }
+    },
+    {
+      "frame_index": 54,
+      "timestamp": 5.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1098,
+          566
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0143300717532166,
+        "degrees": -0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 53,
+        "red_position": [
+          1086,
+          560
+        ]
+      }
+    },
+    {
+      "frame_index": 55,
+      "timestamp": 5.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1110,
+          574
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0143300717532166,
+        "degrees": -0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 54,
+        "red_position": [
+          1098,
+          566
+        ]
+      }
+    },
+    {
+      "frame_index": 56,
+      "timestamp": 5.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1118,
+          576
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.009553381168811067,
+        "degrees": -0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 55,
+        "red_position": [
+          1110,
+          574
+        ]
+      }
+    },
+    {
+      "frame_index": 57,
+      "timestamp": 5.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1126,
+          576
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.009553381168811067,
+        "degrees": -0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 56,
+        "red_position": [
+          1118,
+          576
+        ]
+      }
+    },
+    {
+      "frame_index": 58,
+      "timestamp": 5.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1132,
+          574
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 57,
+        "red_position": [
+          1126,
+          576
+        ]
+      }
+    },
+    {
+      "frame_index": 59,
+      "timestamp": 5.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1140,
+          570
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.009553381168811067,
+        "degrees": -0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 58,
+        "red_position": [
+          1132,
+          574
+        ]
+      }
+    },
+    {
+      "frame_index": 60,
+      "timestamp": 6.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1148,
+          564
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.009553381168811067,
+        "degrees": -0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 59,
+        "red_position": [
+          1140,
+          570
+        ]
+      }
+    },
+    {
+      "frame_index": 61,
+      "timestamp": 6.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1154,
+          560
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 60,
+        "red_position": [
+          1148,
+          564
+        ]
+      }
+    },
+    {
+      "frame_index": 62,
+      "timestamp": 6.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1158,
+          556
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 61,
+        "red_position": [
+          1154,
+          560
+        ]
+      }
+    },
+    {
+      "frame_index": 63,
+      "timestamp": 6.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1160,
+          558
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 62,
+        "red_position": [
+          1158,
+          556
+        ]
+      }
+    },
+    {
+      "frame_index": 64,
+      "timestamp": 6.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1162,
+          558
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 63,
+        "red_position": [
+          1160,
+          558
+        ]
+      }
+    },
+    {
+      "frame_index": 65,
+      "timestamp": 6.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1166,
+          560
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 64,
+        "red_position": [
+          1162,
+          558
+        ]
+      }
+    },
+    {
+      "frame_index": 66,
+      "timestamp": 6.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1164,
+          558
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 65,
+        "red_position": [
+          1166,
+          560
+        ]
+      }
+    },
+    {
+      "frame_index": 67,
+      "timestamp": 6.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1166,
+          556
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 66,
+        "red_position": [
+          1164,
+          558
+        ]
+      }
+    },
+    {
+      "frame_index": 68,
+      "timestamp": 6.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1164,
+          550
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 67,
+        "red_position": [
+          1166,
+          556
+        ]
+      }
+    },
+    {
+      "frame_index": 69,
+      "timestamp": 6.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1162,
+          548
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 68,
+        "red_position": [
+          1164,
+          550
+        ]
+      }
+    },
+    {
+      "frame_index": 70,
+      "timestamp": 7.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1162,
+          546
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 69,
+        "red_position": [
+          1162,
+          548
+        ]
+      }
+    },
+    {
+      "frame_index": 71,
+      "timestamp": 7.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1160,
+          544
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 70,
+        "red_position": [
+          1162,
+          546
+        ]
+      }
+    },
+    {
+      "frame_index": 72,
+      "timestamp": 7.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1158,
+          540
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 71,
+        "red_position": [
+          1160,
+          544
+        ]
+      }
+    },
+    {
+      "frame_index": 73,
+      "timestamp": 7.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1160,
+          540
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 72,
+        "red_position": [
+          1158,
+          540
+        ]
+      }
+    },
+    {
+      "frame_index": 74,
+      "timestamp": 7.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1160,
+          536
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 73,
+        "red_position": [
+          1160,
+          540
+        ]
+      }
+    },
+    {
+      "frame_index": 75,
+      "timestamp": 7.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1162,
+          536
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 74,
+        "red_position": [
+          1160,
+          536
+        ]
+      }
+    },
+    {
+      "frame_index": 76,
+      "timestamp": 7.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1162,
+          536
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 75,
+        "red_position": [
+          1162,
+          536
+        ]
+      }
+    },
+    {
+      "frame_index": 77,
+      "timestamp": 7.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1160,
+          534
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 76,
+        "red_position": [
+          1162,
+          536
+        ]
+      }
+    },
+    {
+      "frame_index": 78,
+      "timestamp": 7.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1160,
+          534
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 77,
+        "red_position": [
+          1160,
+          534
+        ]
+      }
+    },
+    {
+      "frame_index": 79,
+      "timestamp": 7.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1158,
+          532
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 78,
+        "red_position": [
+          1160,
+          534
+        ]
+      }
+    },
+    {
+      "frame_index": 80,
+      "timestamp": 8.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1156,
+          530
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 79,
+        "red_position": [
+          1158,
+          532
+        ]
+      }
+    },
+    {
+      "frame_index": 81,
+      "timestamp": 8.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1154,
+          528
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 80,
+        "red_position": [
+          1156,
+          530
+        ]
+      }
+    },
+    {
+      "frame_index": 82,
+      "timestamp": 8.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1154,
+          530
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 81,
+        "red_position": [
+          1154,
+          528
+        ]
+      }
+    },
+    {
+      "frame_index": 83,
+      "timestamp": 8.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1152,
+          532
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 82,
+        "red_position": [
+          1154,
+          530
+        ]
+      }
+    },
+    {
+      "frame_index": 84,
+      "timestamp": 8.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1148,
+          530
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 83,
+        "red_position": [
+          1152,
+          532
+        ]
+      }
+    },
+    {
+      "frame_index": 85,
+      "timestamp": 8.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1146,
+          534
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 84,
+        "red_position": [
+          1148,
+          530
+        ]
+      }
+    },
+    {
+      "frame_index": 86,
+      "timestamp": 8.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1144,
+          536
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 85,
+        "red_position": [
+          1146,
+          534
+        ]
+      }
+    },
+    {
+      "frame_index": 87,
+      "timestamp": 8.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1142,
+          536
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 86,
+        "red_position": [
+          1144,
+          536
+        ]
+      }
+    },
+    {
+      "frame_index": 88,
+      "timestamp": 8.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1140,
+          538
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 87,
+        "red_position": [
+          1142,
+          536
+        ]
+      }
+    },
+    {
+      "frame_index": 89,
+      "timestamp": 8.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1138,
+          538
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 88,
+        "red_position": [
+          1140,
+          538
+        ]
+      }
+    },
+    {
+      "frame_index": 90,
+      "timestamp": 9.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1136,
+          538
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 89,
+        "red_position": [
+          1138,
+          538
+        ]
+      }
+    },
+    {
+      "frame_index": 91,
+      "timestamp": 9.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1134,
+          538
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 90,
+        "red_position": [
+          1136,
+          538
+        ]
+      }
+    },
+    {
+      "frame_index": 92,
+      "timestamp": 9.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1130,
+          538
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 91,
+        "red_position": [
+          1134,
+          538
+        ]
+      }
+    },
+    {
+      "frame_index": 93,
+      "timestamp": 9.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1126,
+          538
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 92,
+        "red_position": [
+          1130,
+          538
+        ]
+      }
+    },
+    {
+      "frame_index": 94,
+      "timestamp": 9.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1122,
+          534
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 93,
+        "red_position": [
+          1126,
+          538
+        ]
+      }
+    },
+    {
+      "frame_index": 95,
+      "timestamp": 9.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1116,
+          528
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 94,
+        "red_position": [
+          1122,
+          534
+        ]
+      }
+    },
+    {
+      "frame_index": 96,
+      "timestamp": 9.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1110,
+          522
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 95,
+        "red_position": [
+          1116,
+          528
+        ]
+      }
+    },
+    {
+      "frame_index": 97,
+      "timestamp": 9.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1104,
+          526
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 96,
+        "red_position": [
+          1110,
+          522
+        ]
+      }
+    },
+    {
+      "frame_index": 98,
+      "timestamp": 9.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1096,
+          540
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.009553381168811067,
+        "degrees": 0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 97,
+        "red_position": [
+          1104,
+          526
+        ]
+      }
+    },
+    {
+      "frame_index": 99,
+      "timestamp": 9.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1090,
+          560
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 98,
+        "red_position": [
+          1096,
+          540
+        ]
+      }
+    },
+    {
+      "frame_index": 100,
+      "timestamp": 10.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1082,
+          580
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.009553381168811067,
+        "degrees": 0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 99,
+        "red_position": [
+          1090,
+          560
+        ]
+      }
+    },
+    {
+      "frame_index": 101,
+      "timestamp": 10.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1074,
+          596
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.009553381168811067,
+        "degrees": 0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 100,
+        "red_position": [
+          1082,
+          580
+        ]
+      }
+    },
+    {
+      "frame_index": 102,
+      "timestamp": 10.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1066,
+          608
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.009553381168811067,
+        "degrees": 0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 101,
+        "red_position": [
+          1074,
+          596
+        ]
+      }
+    },
+    {
+      "frame_index": 103,
+      "timestamp": 10.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1058,
+          614
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.009553381168811067,
+        "degrees": 0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 102,
+        "red_position": [
+          1066,
+          608
+        ]
+      }
+    },
+    {
+      "frame_index": 104,
+      "timestamp": 10.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1054,
+          616
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 103,
+        "red_position": [
+          1058,
+          614
+        ]
+      }
+    },
+    {
+      "frame_index": 105,
+      "timestamp": 10.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1048,
+          612
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 104,
+        "red_position": [
+          1054,
+          616
+        ]
+      }
+    },
+    {
+      "frame_index": 106,
+      "timestamp": 10.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1046,
+          608
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 105,
+        "red_position": [
+          1048,
+          612
+        ]
+      }
+    },
+    {
+      "frame_index": 107,
+      "timestamp": 10.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1038,
+          602
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.009553381168811067,
+        "degrees": 0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 106,
+        "red_position": [
+          1046,
+          608
+        ]
+      }
+    },
+    {
+      "frame_index": 108,
+      "timestamp": 10.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1032,
+          592
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 107,
+        "red_position": [
+          1038,
+          602
+        ]
+      }
+    },
+    {
+      "frame_index": 109,
+      "timestamp": 10.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1022,
+          582
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.011941726461013834,
+        "degrees": 0.6842105263157895
+      },
+      "previous_frame": {
+        "index": 108,
+        "red_position": [
+          1032,
+          592
+        ]
+      }
+    },
+    {
+      "frame_index": 110,
+      "timestamp": 11.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1008,
+          572
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.016718417045419365,
+        "degrees": 0.9578947368421052
+      },
+      "previous_frame": {
+        "index": 109,
+        "red_position": [
+          1022,
+          582
+        ]
+      }
+    },
+    {
+      "frame_index": 111,
+      "timestamp": 11.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          988,
+          560
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.02388345292202767,
+        "degrees": 1.368421052631579
+      },
+      "previous_frame": {
+        "index": 110,
+        "red_position": [
+          1008,
+          572
+        ]
+      }
+    },
+    {
+      "frame_index": 112,
+      "timestamp": 11.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          962,
+          546
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.03104848879863597,
+        "degrees": 1.7789473684210526
+      },
+      "previous_frame": {
+        "index": 111,
+        "red_position": [
+          988,
+          560
+        ]
+      }
+    },
+    {
+      "frame_index": 113,
+      "timestamp": 11.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          928,
+          530
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.04060186996744704,
+        "degrees": 2.3263157894736843
+      },
+      "previous_frame": {
+        "index": 112,
+        "red_position": [
+          962,
+          546
+        ]
+      }
+    },
+    {
+      "frame_index": 114,
+      "timestamp": 11.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          890,
+          512
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.04537856055185257,
+        "degrees": 2.6
+      },
+      "previous_frame": {
+        "index": 113,
+        "red_position": [
+          928,
+          530
+        ]
+      }
+    },
+    {
+      "frame_index": 115,
+      "timestamp": 11.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          848,
+          496
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0501552511362581,
+        "degrees": 2.873684210526316
+      },
+      "previous_frame": {
+        "index": 114,
+        "red_position": [
+          890,
+          512
+        ]
+      }
+    },
+    {
+      "frame_index": 116,
+      "timestamp": 11.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          812,
+          484
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0429902152596498,
+        "degrees": 2.463157894736842
+      },
+      "previous_frame": {
+        "index": 115,
+        "red_position": [
+          848,
+          496
+        ]
+      }
+    },
+    {
+      "frame_index": 117,
+      "timestamp": 11.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          782,
+          474
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.03582517938304151,
+        "degrees": 2.0526315789473686
+      },
+      "previous_frame": {
+        "index": 116,
+        "red_position": [
+          812,
+          484
+        ]
+      }
+    },
+    {
+      "frame_index": 118,
+      "timestamp": 11.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          758,
+          464
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0286601435064332,
+        "degrees": 1.6421052631578947
+      },
+      "previous_frame": {
+        "index": 117,
+        "red_position": [
+          782,
+          474
+        ]
+      }
+    },
+    {
+      "frame_index": 119,
+      "timestamp": 11.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          738,
+          456
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.02388345292202767,
+        "degrees": 1.368421052631579
+      },
+      "previous_frame": {
+        "index": 118,
+        "red_position": [
+          758,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 120,
+      "timestamp": 12.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          722,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.019106762337622134,
+        "degrees": 1.0947368421052632
+      },
+      "previous_frame": {
+        "index": 119,
+        "red_position": [
+          738,
+          456
+        ]
+      }
+    },
+    {
+      "frame_index": 121,
+      "timestamp": 12.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          708,
+          472
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.016718417045419365,
+        "degrees": 0.9578947368421052
+      },
+      "previous_frame": {
+        "index": 120,
+        "red_position": [
+          722,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 122,
+      "timestamp": 12.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          696,
+          482
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0143300717532166,
+        "degrees": 0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 121,
+        "red_position": [
+          708,
+          472
+        ]
+      }
+    },
+    {
+      "frame_index": 123,
+      "timestamp": 12.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          686,
+          492
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.011941726461013834,
+        "degrees": 0.6842105263157895
+      },
+      "previous_frame": {
+        "index": 122,
+        "red_position": [
+          696,
+          482
+        ]
+      }
+    },
+    {
+      "frame_index": 124,
+      "timestamp": 12.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          676,
+          498
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.011941726461013834,
+        "degrees": 0.6842105263157895
+      },
+      "previous_frame": {
+        "index": 123,
+        "red_position": [
+          686,
+          492
+        ]
+      }
+    },
+    {
+      "frame_index": 125,
+      "timestamp": 12.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          664,
+          498
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0143300717532166,
+        "degrees": 0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 124,
+        "red_position": [
+          676,
+          498
+        ]
+      }
+    },
+    {
+      "frame_index": 126,
+      "timestamp": 12.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          652,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0143300717532166,
+        "degrees": 0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 125,
+        "red_position": [
+          664,
+          498
+        ]
+      }
+    },
+    {
+      "frame_index": 127,
+      "timestamp": 12.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          638,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.016718417045419365,
+        "degrees": 0.9578947368421052
+      },
+      "previous_frame": {
+        "index": 126,
+        "red_position": [
+          652,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 128,
+      "timestamp": 12.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          626,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0143300717532166,
+        "degrees": 0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 127,
+        "red_position": [
+          638,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 129,
+      "timestamp": 12.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          616,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.011941726461013834,
+        "degrees": 0.6842105263157895
+      },
+      "previous_frame": {
+        "index": 128,
+        "red_position": [
+          626,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 130,
+      "timestamp": 13.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          610,
+          504
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 129,
+        "red_position": [
+          616,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 131,
+      "timestamp": 13.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          606,
+          504
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 130,
+        "red_position": [
+          610,
+          504
+        ]
+      }
+    },
+    {
+      "frame_index": 132,
+      "timestamp": 13.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          604,
+          504
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 131,
+        "red_position": [
+          606,
+          504
+        ]
+      }
+    },
+    {
+      "frame_index": 133,
+      "timestamp": 13.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          610,
+          504
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 132,
+        "red_position": [
+          604,
+          504
+        ]
+      }
+    },
+    {
+      "frame_index": 134,
+      "timestamp": 13.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          632,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.026271798214230434,
+        "degrees": -1.5052631578947369
+      },
+      "previous_frame": {
+        "index": 133,
+        "red_position": [
+          610,
+          504
+        ]
+      }
+    },
+    {
+      "frame_index": 135,
+      "timestamp": 13.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          668,
+          498
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0429902152596498,
+        "degrees": -2.463157894736842
+      },
+      "previous_frame": {
+        "index": 134,
+        "red_position": [
+          632,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 136,
+      "timestamp": 13.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          712,
+          498
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.05254359642846087,
+        "degrees": -3.0105263157894737
+      },
+      "previous_frame": {
+        "index": 135,
+        "red_position": [
+          668,
+          498
+        ]
+      }
+    },
+    {
+      "frame_index": 137,
+      "timestamp": 13.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          764,
+          496
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.06209697759727194,
+        "degrees": -3.557894736842105
+      },
+      "previous_frame": {
+        "index": 136,
+        "red_position": [
+          712,
+          498
+        ]
+      }
+    },
+    {
+      "frame_index": 138,
+      "timestamp": 13.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          804,
+          494
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.04776690584405534,
+        "degrees": -2.736842105263158
+      },
+      "previous_frame": {
+        "index": 137,
+        "red_position": [
+          764,
+          496
+        ]
+      }
+    },
+    {
+      "frame_index": 139,
+      "timestamp": 13.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          844,
+          492
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.04776690584405534,
+        "degrees": -2.736842105263158
+      },
+      "previous_frame": {
+        "index": 138,
+        "red_position": [
+          804,
+          494
+        ]
+      }
+    },
+    {
+      "frame_index": 140,
+      "timestamp": 14.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          870,
+          486
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.03104848879863597,
+        "degrees": -1.7789473684210526
+      },
+      "previous_frame": {
+        "index": 139,
+        "red_position": [
+          844,
+          492
+        ]
+      }
+    },
+    {
+      "frame_index": 141,
+      "timestamp": 14.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          888,
+          482
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0214951076298249,
+        "degrees": -1.231578947368421
+      },
+      "previous_frame": {
+        "index": 140,
+        "red_position": [
+          870,
+          486
+        ]
+      }
+    },
+    {
+      "frame_index": 142,
+      "timestamp": 14.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          900,
+          480
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0143300717532166,
+        "degrees": -0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 141,
+        "red_position": [
+          888,
+          482
+        ]
+      }
+    },
+    {
+      "frame_index": 143,
+      "timestamp": 14.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          906,
+          482
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 142,
+        "red_position": [
+          900,
+          480
+        ]
+      }
+    },
+    {
+      "frame_index": 144,
+      "timestamp": 14.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          914,
+          490
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.009553381168811067,
+        "degrees": -0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 143,
+        "red_position": [
+          906,
+          482
+        ]
+      }
+    },
+    {
+      "frame_index": 145,
+      "timestamp": 14.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          918,
+          496
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 144,
+        "red_position": [
+          914,
+          490
+        ]
+      }
+    },
+    {
+      "frame_index": 146,
+      "timestamp": 14.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          922,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 145,
+        "red_position": [
+          918,
+          496
+        ]
+      }
+    },
+    {
+      "frame_index": 147,
+      "timestamp": 14.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          926,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 146,
+        "red_position": [
+          922,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 148,
+      "timestamp": 14.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          930,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 147,
+        "red_position": [
+          926,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 149,
+      "timestamp": 14.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          936,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 148,
+        "red_position": [
+          930,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 150,
+      "timestamp": 15.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          940,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 149,
+        "red_position": [
+          936,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 151,
+      "timestamp": 15.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          944,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 150,
+        "red_position": [
+          940,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 152,
+      "timestamp": 15.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          944,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 151,
+        "red_position": [
+          944,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 153,
+      "timestamp": 15.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          946,
+          498
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 152,
+        "red_position": [
+          944,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 154,
+      "timestamp": 15.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          946,
+          498
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 153,
+        "red_position": [
+          946,
+          498
+        ]
+      }
+    },
+    {
+      "frame_index": 155,
+      "timestamp": 15.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          946,
+          496
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 154,
+        "red_position": [
+          946,
+          498
+        ]
+      }
+    },
+    {
+      "frame_index": 156,
+      "timestamp": 15.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          944,
+          496
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 155,
+        "red_position": [
+          946,
+          496
+        ]
+      }
+    },
+    {
+      "frame_index": 157,
+      "timestamp": 15.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          940,
+          494
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 156,
+        "red_position": [
+          944,
+          496
+        ]
+      }
+    },
+    {
+      "frame_index": 158,
+      "timestamp": 15.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          934,
+          490
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 157,
+        "red_position": [
+          940,
+          494
+        ]
+      }
+    },
+    {
+      "frame_index": 159,
+      "timestamp": 15.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          928,
+          490
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 158,
+        "red_position": [
+          934,
+          490
+        ]
+      }
+    },
+    {
+      "frame_index": 160,
+      "timestamp": 16.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          920,
+          488
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.009553381168811067,
+        "degrees": 0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 159,
+        "red_position": [
+          928,
+          490
+        ]
+      }
+    },
+    {
+      "frame_index": 161,
+      "timestamp": 16.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          908,
+          484
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0143300717532166,
+        "degrees": 0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 160,
+        "red_position": [
+          920,
+          488
+        ]
+      }
+    },
+    {
+      "frame_index": 162,
+      "timestamp": 16.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          894,
+          478
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.016718417045419365,
+        "degrees": 0.9578947368421052
+      },
+      "previous_frame": {
+        "index": 161,
+        "red_position": [
+          908,
+          484
+        ]
+      }
+    },
+    {
+      "frame_index": 163,
+      "timestamp": 16.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          874,
+          472
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.02388345292202767,
+        "degrees": 1.368421052631579
+      },
+      "previous_frame": {
+        "index": 162,
+        "red_position": [
+          894,
+          478
+        ]
+      }
+    },
+    {
+      "frame_index": 164,
+      "timestamp": 16.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          846,
+          468
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.03343683409083873,
+        "degrees": 1.9157894736842105
+      },
+      "previous_frame": {
+        "index": 163,
+        "red_position": [
+          874,
+          472
+        ]
+      }
+    },
+    {
+      "frame_index": 165,
+      "timestamp": 16.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          812,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.04060186996744704,
+        "degrees": 2.3263157894736843
+      },
+      "previous_frame": {
+        "index": 164,
+        "red_position": [
+          846,
+          468
+        ]
+      }
+    },
+    {
+      "frame_index": 166,
+      "timestamp": 16.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          776,
+          460
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0429902152596498,
+        "degrees": 2.463157894736842
+      },
+      "previous_frame": {
+        "index": 165,
+        "red_position": [
+          812,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 167,
+      "timestamp": 16.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          744,
+          458
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.03821352467524427,
+        "degrees": 2.1894736842105265
+      },
+      "previous_frame": {
+        "index": 166,
+        "red_position": [
+          776,
+          460
+        ]
+      }
+    },
+    {
+      "frame_index": 168,
+      "timestamp": 16.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          714,
+          460
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.03582517938304151,
+        "degrees": 2.0526315789473686
+      },
+      "previous_frame": {
+        "index": 167,
+        "red_position": [
+          744,
+          458
+        ]
+      }
+    },
+    {
+      "frame_index": 169,
+      "timestamp": 16.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          684,
+          460
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.03582517938304151,
+        "degrees": 2.0526315789473686
+      },
+      "previous_frame": {
+        "index": 168,
+        "red_position": [
+          714,
+          460
+        ]
+      }
+    },
+    {
+      "frame_index": 170,
+      "timestamp": 17.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          666,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0214951076298249,
+        "degrees": 1.231578947368421
+      },
+      "previous_frame": {
+        "index": 169,
+        "red_position": [
+          684,
+          460
+        ]
+      }
+    },
+    {
+      "frame_index": 171,
+      "timestamp": 17.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          648,
+          460
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0214951076298249,
+        "degrees": 1.231578947368421
+      },
+      "previous_frame": {
+        "index": 170,
+        "red_position": [
+          666,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 172,
+      "timestamp": 17.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          642,
+          460
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 171,
+        "red_position": [
+          648,
+          460
+        ]
+      }
+    },
+    {
+      "frame_index": 173,
+      "timestamp": 17.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          642,
+          460
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 172,
+        "red_position": [
+          642,
+          460
+        ]
+      }
+    },
+    {
+      "frame_index": 174,
+      "timestamp": 17.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          648,
+          456
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 173,
+        "red_position": [
+          642,
+          460
+        ]
+      }
+    },
+    {
+      "frame_index": 175,
+      "timestamp": 17.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          664,
+          456
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.019106762337622134,
+        "degrees": -1.0947368421052632
+      },
+      "previous_frame": {
+        "index": 174,
+        "red_position": [
+          648,
+          456
+        ]
+      }
+    },
+    {
+      "frame_index": 176,
+      "timestamp": 17.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          688,
+          454
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0286601435064332,
+        "degrees": -1.6421052631578947
+      },
+      "previous_frame": {
+        "index": 175,
+        "red_position": [
+          664,
+          456
+        ]
+      }
+    },
+    {
+      "frame_index": 177,
+      "timestamp": 17.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          718,
+          452
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.03582517938304151,
+        "degrees": -2.0526315789473686
+      },
+      "previous_frame": {
+        "index": 176,
+        "red_position": [
+          688,
+          454
+        ]
+      }
+    },
+    {
+      "frame_index": 178,
+      "timestamp": 17.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          752,
+          452
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.04060186996744704,
+        "degrees": -2.3263157894736843
+      },
+      "previous_frame": {
+        "index": 177,
+        "red_position": [
+          718,
+          452
+        ]
+      }
+    },
+    {
+      "frame_index": 179,
+      "timestamp": 17.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          780,
+          452
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.03343683409083873,
+        "degrees": -1.9157894736842105
+      },
+      "previous_frame": {
+        "index": 178,
+        "red_position": [
+          752,
+          452
+        ]
+      }
+    },
+    {
+      "frame_index": 180,
+      "timestamp": 18.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          814,
+          456
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.04060186996744704,
+        "degrees": -2.3263157894736843
+      },
+      "previous_frame": {
+        "index": 179,
+        "red_position": [
+          780,
+          452
+        ]
+      }
+    },
+    {
+      "frame_index": 181,
+      "timestamp": 18.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          842,
+          458
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.03343683409083873,
+        "degrees": -1.9157894736842105
+      },
+      "previous_frame": {
+        "index": 180,
+        "red_position": [
+          814,
+          456
+        ]
+      }
+    },
+    {
+      "frame_index": 182,
+      "timestamp": 18.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          864,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.026271798214230434,
+        "degrees": -1.5052631578947369
+      },
+      "previous_frame": {
+        "index": 181,
+        "red_position": [
+          842,
+          458
+        ]
+      }
+    },
+    {
+      "frame_index": 183,
+      "timestamp": 18.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          880,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.019106762337622134,
+        "degrees": -1.0947368421052632
+      },
+      "previous_frame": {
+        "index": 182,
+        "red_position": [
+          864,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 184,
+      "timestamp": 18.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          896,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.019106762337622134,
+        "degrees": -1.0947368421052632
+      },
+      "previous_frame": {
+        "index": 183,
+        "red_position": [
+          880,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 185,
+      "timestamp": 18.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          912,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.019106762337622134,
+        "degrees": -1.0947368421052632
+      },
+      "previous_frame": {
+        "index": 184,
+        "red_position": [
+          896,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 186,
+      "timestamp": 18.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          926,
+          464
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.016718417045419365,
+        "degrees": -0.9578947368421052
+      },
+      "previous_frame": {
+        "index": 185,
+        "red_position": [
+          912,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 187,
+      "timestamp": 18.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          942,
+          468
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.019106762337622134,
+        "degrees": -1.0947368421052632
+      },
+      "previous_frame": {
+        "index": 186,
+        "red_position": [
+          926,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 188,
+      "timestamp": 18.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          954,
+          472
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.0143300717532166,
+        "degrees": -0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 187,
+        "red_position": [
+          942,
+          468
+        ]
+      }
+    },
+    {
+      "frame_index": 189,
+      "timestamp": 18.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          968,
+          476
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.016718417045419365,
+        "degrees": -0.9578947368421052
+      },
+      "previous_frame": {
+        "index": 188,
+        "red_position": [
+          954,
+          472
+        ]
+      }
+    },
+    {
+      "frame_index": 190,
+      "timestamp": 19.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          986,
+          478
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0214951076298249,
+        "degrees": -1.231578947368421
+      },
+      "previous_frame": {
+        "index": 189,
+        "red_position": [
+          968,
+          476
+        ]
+      }
+    },
+    {
+      "frame_index": 191,
+      "timestamp": 19.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1004,
+          478
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0214951076298249,
+        "degrees": -1.231578947368421
+      },
+      "previous_frame": {
+        "index": 190,
+        "red_position": [
+          986,
+          478
+        ]
+      }
+    },
+    {
+      "frame_index": 192,
+      "timestamp": 19.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1020,
+          476
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.019106762337622134,
+        "degrees": -1.0947368421052632
+      },
+      "previous_frame": {
+        "index": 191,
+        "red_position": [
+          1004,
+          478
+        ]
+      }
+    },
+    {
+      "frame_index": 193,
+      "timestamp": 19.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1034,
+          474
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.016718417045419365,
+        "degrees": -0.9578947368421052
+      },
+      "previous_frame": {
+        "index": 192,
+        "red_position": [
+          1020,
+          476
+        ]
+      }
+    },
+    {
+      "frame_index": 194,
+      "timestamp": 19.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1048,
+          470
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.016718417045419365,
+        "degrees": -0.9578947368421052
+      },
+      "previous_frame": {
+        "index": 193,
+        "red_position": [
+          1034,
+          474
+        ]
+      }
+    },
+    {
+      "frame_index": 195,
+      "timestamp": 19.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1060,
+          464
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.0143300717532166,
+        "degrees": -0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 194,
+        "red_position": [
+          1048,
+          470
+        ]
+      }
+    },
+    {
+      "frame_index": 196,
+      "timestamp": 19.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1074,
+          460
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.016718417045419365,
+        "degrees": -0.9578947368421052
+      },
+      "previous_frame": {
+        "index": 195,
+        "red_position": [
+          1060,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 197,
+      "timestamp": 19.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1086,
+          454
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0143300717532166,
+        "degrees": -0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 196,
+        "red_position": [
+          1074,
+          460
+        ]
+      }
+    },
+    {
+      "frame_index": 198,
+      "timestamp": 19.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1098,
+          450
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0143300717532166,
+        "degrees": -0.8210526315789474
+      },
+      "previous_frame": {
+        "index": 197,
+        "red_position": [
+          1086,
+          454
+        ]
+      }
+    },
+    {
+      "frame_index": 199,
+      "timestamp": 19.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1108,
+          448
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.011941726461013834,
+        "degrees": -0.6842105263157895
+      },
+      "previous_frame": {
+        "index": 198,
+        "red_position": [
+          1098,
+          450
+        ]
+      }
+    },
+    {
+      "frame_index": 200,
+      "timestamp": 20.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1118,
+          448
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.011941726461013834,
+        "degrees": -0.6842105263157895
+      },
+      "previous_frame": {
+        "index": 199,
+        "red_position": [
+          1108,
+          448
+        ]
+      }
+    },
+    {
+      "frame_index": 201,
+      "timestamp": 20.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1124,
+          448
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 200,
+        "red_position": [
+          1118,
+          448
+        ]
+      }
+    },
+    {
+      "frame_index": 202,
+      "timestamp": 20.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1126,
+          450
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 201,
+        "red_position": [
+          1124,
+          448
+        ]
+      }
+    },
+    {
+      "frame_index": 203,
+      "timestamp": 20.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1128,
+          450
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 202,
+        "red_position": [
+          1126,
+          450
+        ]
+      }
+    },
+    {
+      "frame_index": 204,
+      "timestamp": 20.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1132,
+          450
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 203,
+        "red_position": [
+          1128,
+          450
+        ]
+      }
+    },
+    {
+      "frame_index": 205,
+      "timestamp": 20.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1138,
+          454
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 204,
+        "red_position": [
+          1132,
+          450
+        ]
+      }
+    },
+    {
+      "frame_index": 206,
+      "timestamp": 20.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1142,
+          458
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 205,
+        "red_position": [
+          1138,
+          454
+        ]
+      }
+    },
+    {
+      "frame_index": 207,
+      "timestamp": 20.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1148,
+          464
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 206,
+        "red_position": [
+          1142,
+          458
+        ]
+      }
+    },
+    {
+      "frame_index": 208,
+      "timestamp": 20.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1154,
+          468
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.0071650358766083,
+        "degrees": -0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 207,
+        "red_position": [
+          1148,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 209,
+      "timestamp": 20.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1158,
+          470
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 208,
+        "red_position": [
+          1154,
+          468
+        ]
+      }
+    },
+    {
+      "frame_index": 210,
+      "timestamp": 21.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1158,
+          470
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 209,
+        "red_position": [
+          1158,
+          470
+        ]
+      }
+    },
+    {
+      "frame_index": 211,
+      "timestamp": 21.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1158,
+          470
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 210,
+        "red_position": [
+          1158,
+          470
+        ]
+      }
+    },
+    {
+      "frame_index": 212,
+      "timestamp": 21.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1158,
+          468
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 211,
+        "red_position": [
+          1158,
+          470
+        ]
+      }
+    },
+    {
+      "frame_index": 213,
+      "timestamp": 21.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1156,
+          468
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 212,
+        "red_position": [
+          1158,
+          468
+        ]
+      }
+    },
+    {
+      "frame_index": 214,
+      "timestamp": 21.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1154,
+          466
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 213,
+        "red_position": [
+          1156,
+          468
+        ]
+      }
+    },
+    {
+      "frame_index": 215,
+      "timestamp": 21.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1150,
+          464
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 214,
+        "red_position": [
+          1154,
+          466
+        ]
+      }
+    },
+    {
+      "frame_index": 216,
+      "timestamp": 21.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1150,
+          464
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 215,
+        "red_position": [
+          1150,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 217,
+      "timestamp": 21.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1150,
+          464
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 216,
+        "red_position": [
+          1150,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 218,
+      "timestamp": 21.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1152,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 217,
+        "red_position": [
+          1150,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 219,
+      "timestamp": 21.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1154,
+          464
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 218,
+        "red_position": [
+          1152,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 220,
+      "timestamp": 22.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1152,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 219,
+        "red_position": [
+          1154,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 221,
+      "timestamp": 22.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1152,
+          464
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 220,
+        "red_position": [
+          1152,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 222,
+      "timestamp": 22.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1150,
+          464
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 221,
+        "red_position": [
+          1152,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 223,
+      "timestamp": 22.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1148,
+          464
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 222,
+        "red_position": [
+          1150,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 224,
+      "timestamp": 22.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1144,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 223,
+        "red_position": [
+          1148,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 225,
+      "timestamp": 22.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1144,
+          462
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 224,
+        "red_position": [
+          1144,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 226,
+      "timestamp": 22.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1144,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 225,
+        "red_position": [
+          1144,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 227,
+      "timestamp": 22.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1142,
+          464
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 226,
+        "red_position": [
+          1144,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 228,
+      "timestamp": 22.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1140,
+          468
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 227,
+        "red_position": [
+          1142,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 229,
+      "timestamp": 22.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1136,
+          470
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 228,
+        "red_position": [
+          1140,
+          468
+        ]
+      }
+    },
+    {
+      "frame_index": 230,
+      "timestamp": 23.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1134,
+          472
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 229,
+        "red_position": [
+          1136,
+          470
+        ]
+      }
+    },
+    {
+      "frame_index": 231,
+      "timestamp": 23.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1132,
+          472
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 230,
+        "red_position": [
+          1134,
+          472
+        ]
+      }
+    },
+    {
+      "frame_index": 232,
+      "timestamp": 23.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1130,
+          474
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 231,
+        "red_position": [
+          1132,
+          472
+        ]
+      }
+    },
+    {
+      "frame_index": 233,
+      "timestamp": 23.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1126,
+          472
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 232,
+        "red_position": [
+          1130,
+          474
+        ]
+      }
+    },
+    {
+      "frame_index": 234,
+      "timestamp": 23.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1126,
+          472
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 233,
+        "red_position": [
+          1126,
+          472
+        ]
+      }
+    },
+    {
+      "frame_index": 235,
+      "timestamp": 23.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1124,
+          472
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 234,
+        "red_position": [
+          1126,
+          472
+        ]
+      }
+    },
+    {
+      "frame_index": 236,
+      "timestamp": 23.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1122,
+          472
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 235,
+        "red_position": [
+          1124,
+          472
+        ]
+      }
+    },
+    {
+      "frame_index": 237,
+      "timestamp": 23.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1120,
+          472
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 236,
+        "red_position": [
+          1122,
+          472
+        ]
+      }
+    },
+    {
+      "frame_index": 238,
+      "timestamp": 23.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1118,
+          474
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 237,
+        "red_position": [
+          1120,
+          472
+        ]
+      }
+    },
+    {
+      "frame_index": 239,
+      "timestamp": 23.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1114,
+          476
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 238,
+        "red_position": [
+          1118,
+          474
+        ]
+      }
+    },
+    {
+      "frame_index": 240,
+      "timestamp": 24.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1108,
+          480
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 239,
+        "red_position": [
+          1114,
+          476
+        ]
+      }
+    },
+    {
+      "frame_index": 241,
+      "timestamp": 24.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1100,
+          484
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.009553381168811067,
+        "degrees": 0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 240,
+        "red_position": [
+          1108,
+          480
+        ]
+      }
+    },
+    {
+      "frame_index": 242,
+      "timestamp": 24.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1096,
+          490
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 241,
+        "red_position": [
+          1100,
+          484
+        ]
+      }
+    },
+    {
+      "frame_index": 243,
+      "timestamp": 24.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1088,
+          494
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.009553381168811067,
+        "degrees": 0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 242,
+        "red_position": [
+          1096,
+          490
+        ]
+      }
+    },
+    {
+      "frame_index": 244,
+      "timestamp": 24.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1084,
+          498
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 243,
+        "red_position": [
+          1088,
+          494
+        ]
+      }
+    },
+    {
+      "frame_index": 245,
+      "timestamp": 24.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1082,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 244,
+        "red_position": [
+          1084,
+          498
+        ]
+      }
+    },
+    {
+      "frame_index": 246,
+      "timestamp": 24.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1078,
+          498
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 245,
+        "red_position": [
+          1082,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 247,
+      "timestamp": 24.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1076,
+          496
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 246,
+        "red_position": [
+          1078,
+          498
+        ]
+      }
+    },
+    {
+      "frame_index": 248,
+      "timestamp": 24.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1072,
+          496
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 247,
+        "red_position": [
+          1076,
+          496
+        ]
+      }
+    },
+    {
+      "frame_index": 249,
+      "timestamp": 24.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1066,
+          496
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 248,
+        "red_position": [
+          1072,
+          496
+        ]
+      }
+    },
+    {
+      "frame_index": 250,
+      "timestamp": 25.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1064,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 249,
+        "red_position": [
+          1066,
+          496
+        ]
+      }
+    },
+    {
+      "frame_index": 251,
+      "timestamp": 25.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1058,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 250,
+        "red_position": [
+          1064,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 252,
+      "timestamp": 25.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1056,
+          502
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 251,
+        "red_position": [
+          1058,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 253,
+      "timestamp": 25.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1050,
+          498
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 252,
+        "red_position": [
+          1056,
+          502
+        ]
+      }
+    },
+    {
+      "frame_index": 254,
+      "timestamp": 25.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1046,
+          496
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 253,
+        "red_position": [
+          1050,
+          498
+        ]
+      }
+    },
+    {
+      "frame_index": 255,
+      "timestamp": 25.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1042,
+          492
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 254,
+        "red_position": [
+          1046,
+          496
+        ]
+      }
+    },
+    {
+      "frame_index": 256,
+      "timestamp": 25.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1040,
+          490
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 255,
+        "red_position": [
+          1042,
+          492
+        ]
+      }
+    },
+    {
+      "frame_index": 257,
+      "timestamp": 25.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1036,
+          488
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 256,
+        "red_position": [
+          1040,
+          490
+        ]
+      }
+    },
+    {
+      "frame_index": 258,
+      "timestamp": 25.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1032,
+          484
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 257,
+        "red_position": [
+          1036,
+          488
+        ]
+      }
+    },
+    {
+      "frame_index": 259,
+      "timestamp": 25.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1032,
+          486
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 258,
+        "red_position": [
+          1032,
+          484
+        ]
+      }
+    },
+    {
+      "frame_index": 260,
+      "timestamp": 26.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1028,
+          488
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 259,
+        "red_position": [
+          1032,
+          486
+        ]
+      }
+    },
+    {
+      "frame_index": 261,
+      "timestamp": 26.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1028,
+          488
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 260,
+        "red_position": [
+          1028,
+          488
+        ]
+      }
+    },
+    {
+      "frame_index": 262,
+      "timestamp": 26.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1024,
+          486
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.004776690584405534,
+        "degrees": 0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 261,
+        "red_position": [
+          1028,
+          488
+        ]
+      }
+    },
+    {
+      "frame_index": 263,
+      "timestamp": 26.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1024,
+          486
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 262,
+        "red_position": [
+          1024,
+          486
+        ]
+      }
+    },
+    {
+      "frame_index": 264,
+      "timestamp": 26.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1024,
+          486
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 263,
+        "red_position": [
+          1024,
+          486
+        ]
+      }
+    },
+    {
+      "frame_index": 265,
+      "timestamp": 26.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1024,
+          484
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 264,
+        "red_position": [
+          1024,
+          486
+        ]
+      }
+    },
+    {
+      "frame_index": 266,
+      "timestamp": 26.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1024,
+          484
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 265,
+        "red_position": [
+          1024,
+          484
+        ]
+      }
+    },
+    {
+      "frame_index": 267,
+      "timestamp": 26.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1028,
+          484
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 266,
+        "red_position": [
+          1024,
+          484
+        ]
+      }
+    },
+    {
+      "frame_index": 268,
+      "timestamp": 26.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1032,
+          484
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 267,
+        "red_position": [
+          1028,
+          484
+        ]
+      }
+    },
+    {
+      "frame_index": 269,
+      "timestamp": 26.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1036,
+          482
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.004776690584405534,
+        "degrees": -0.2736842105263158
+      },
+      "previous_frame": {
+        "index": 268,
+        "red_position": [
+          1032,
+          484
+        ]
+      }
+    },
+    {
+      "frame_index": 270,
+      "timestamp": 27.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1038,
+          480
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 269,
+        "red_position": [
+          1036,
+          482
+        ]
+      }
+    },
+    {
+      "frame_index": 271,
+      "timestamp": 27.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1040,
+          476
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 270,
+        "red_position": [
+          1038,
+          480
+        ]
+      }
+    },
+    {
+      "frame_index": 272,
+      "timestamp": 27.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1042,
+          474
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 271,
+        "red_position": [
+          1040,
+          476
+        ]
+      }
+    },
+    {
+      "frame_index": 273,
+      "timestamp": 27.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1044,
+          474
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 272,
+        "red_position": [
+          1042,
+          474
+        ]
+      }
+    },
+    {
+      "frame_index": 274,
+      "timestamp": 27.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1042,
+          470
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 273,
+        "red_position": [
+          1044,
+          474
+        ]
+      }
+    },
+    {
+      "frame_index": 275,
+      "timestamp": 27.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1042,
+          468
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 274,
+        "red_position": [
+          1042,
+          470
+        ]
+      }
+    },
+    {
+      "frame_index": 276,
+      "timestamp": 27.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1044,
+          468
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 275,
+        "red_position": [
+          1042,
+          468
+        ]
+      }
+    },
+    {
+      "frame_index": 277,
+      "timestamp": 27.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1044,
+          466
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 276,
+        "red_position": [
+          1044,
+          468
+        ]
+      }
+    },
+    {
+      "frame_index": 278,
+      "timestamp": 27.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1044,
+          462
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 277,
+        "red_position": [
+          1044,
+          466
+        ]
+      }
+    },
+    {
+      "frame_index": 279,
+      "timestamp": 27.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1046,
+          462
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 278,
+        "red_position": [
+          1044,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 280,
+      "timestamp": 28.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1048,
+          464
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.002388345292202767,
+        "degrees": -0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 279,
+        "red_position": [
+          1046,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 281,
+      "timestamp": 28.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1046,
+          464
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 280,
+        "red_position": [
+          1048,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 282,
+      "timestamp": 28.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1046,
+          464
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 281,
+        "red_position": [
+          1046,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 283,
+      "timestamp": 28.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1046,
+          464
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 282,
+        "red_position": [
+          1046,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 284,
+      "timestamp": 28.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1044,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 283,
+        "red_position": [
+          1046,
+          464
+        ]
+      }
+    },
+    {
+      "frame_index": 285,
+      "timestamp": 28.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1044,
+          462
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0,
+        "degrees": 0.0
+      },
+      "previous_frame": {
+        "index": 284,
+        "red_position": [
+          1044,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 286,
+      "timestamp": 28.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1042,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 285,
+        "red_position": [
+          1044,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 287,
+      "timestamp": 28.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1040,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 286,
+        "red_position": [
+          1042,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 288,
+      "timestamp": 28.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1038,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 287,
+        "red_position": [
+          1040,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 289,
+      "timestamp": 28.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1036,
+          462
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.002388345292202767,
+        "degrees": 0.1368421052631579
+      },
+      "previous_frame": {
+        "index": 288,
+        "red_position": [
+          1038,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 290,
+      "timestamp": 29.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1030,
+          460
+        ],
+        "radius": 6
+      },
+      "head_movement": {
+        "radians": 0.0071650358766083,
+        "degrees": 0.4105263157894737
+      },
+      "previous_frame": {
+        "index": 289,
+        "red_position": [
+          1036,
+          462
+        ]
+      }
+    },
+    {
+      "frame_index": 291,
+      "timestamp": 29.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1022,
+          468
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.009553381168811067,
+        "degrees": 0.5473684210526316
+      },
+      "previous_frame": {
+        "index": 290,
+        "red_position": [
+          1030,
+          460
+        ]
+      }
+    },
+    {
+      "frame_index": 292,
+      "timestamp": 29.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1006,
+          482
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.019106762337622134,
+        "degrees": 1.0947368421052632
+      },
+      "previous_frame": {
+        "index": 291,
+        "red_position": [
+          1022,
+          468
+        ]
+      }
+    },
+    {
+      "frame_index": 293,
+      "timestamp": 29.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          982,
+          494
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0286601435064332,
+        "degrees": 1.6421052631578947
+      },
+      "previous_frame": {
+        "index": 292,
+        "red_position": [
+          1006,
+          482
+        ]
+      }
+    },
+    {
+      "frame_index": 294,
+      "timestamp": 29.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          952,
+          506
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.03582517938304151,
+        "degrees": 2.0526315789473686
+      },
+      "previous_frame": {
+        "index": 293,
+        "red_position": [
+          982,
+          494
+        ]
+      }
+    },
+    {
+      "frame_index": 295,
+      "timestamp": 29.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1022,
+          468
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": -0.08359208522709684,
+        "degrees": -4.7894736842105265
+      },
+      "previous_frame": {
+        "index": 294,
+        "red_position": [
+          952,
+          506
+        ]
+      }
+    },
+    {
+      "frame_index": 296,
+      "timestamp": 29.6,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          1006,
+          482
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.019106762337622134,
+        "degrees": 1.0947368421052632
+      },
+      "previous_frame": {
+        "index": 295,
+        "red_position": [
+          1022,
+          468
+        ]
+      }
+    },
+    {
+      "frame_index": 297,
+      "timestamp": 29.7,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          982,
+          494
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.0286601435064332,
+        "degrees": 1.6421052631578947
+      },
+      "previous_frame": {
+        "index": 296,
+        "red_position": [
+          1006,
+          482
+        ]
+      }
+    },
+    {
+      "frame_index": 298,
+      "timestamp": 29.8,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          954,
+          506
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.03343683409083873,
+        "degrees": 1.9157894736842105
+      },
+      "previous_frame": {
+        "index": 297,
+        "red_position": [
+          982,
+          494
+        ]
+      }
+    },
+    {
+      "frame_index": 299,
+      "timestamp": 29.9,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          924,
+          506
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.03582517938304151,
+        "degrees": 2.0526315789473686
+      },
+      "previous_frame": {
+        "index": 298,
+        "red_position": [
+          954,
+          506
+        ]
+      }
+    },
+    {
+      "frame_index": 300,
+      "timestamp": 30.0,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          886,
+          500
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.04537856055185257,
+        "degrees": 2.6
+      },
+      "previous_frame": {
+        "index": 299,
+        "red_position": [
+          924,
+          506
+        ]
+      }
+    },
+    {
+      "frame_index": 301,
+      "timestamp": 30.1,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          846,
+          490
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.04776690584405534,
+        "degrees": 2.736842105263158
+      },
+      "previous_frame": {
+        "index": 300,
+        "red_position": [
+          886,
+          500
+        ]
+      }
+    },
+    {
+      "frame_index": 302,
+      "timestamp": 30.2,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          794,
+          470
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.06209697759727194,
+        "degrees": 3.557894736842105
+      },
+      "previous_frame": {
+        "index": 301,
+        "red_position": [
+          846,
+          490
+        ]
+      }
+    },
+    {
+      "frame_index": 303,
+      "timestamp": 30.3,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          736,
+          446
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.06926201347388024,
+        "degrees": 3.968421052631579
+      },
+      "previous_frame": {
+        "index": 302,
+        "red_position": [
+          794,
+          470
+        ]
+      }
+    },
+    {
+      "frame_index": 304,
+      "timestamp": 30.4,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          660,
+          408
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.09075712110370514,
+        "degrees": 5.2
+      },
+      "previous_frame": {
+        "index": 303,
+        "red_position": [
+          736,
+          446
+        ]
+      }
+    },
+    {
+      "frame_index": 305,
+      "timestamp": 30.5,
+      "red_circle": {
+        "detected": true,
+        "position": [
+          584,
+          368
+        ],
+        "radius": 5
+      },
+      "head_movement": {
+        "radians": 0.09075712110370514,
+        "degrees": 5.2
+      },
+      "previous_frame": {
+        "index": 304,
+        "red_position": [
+          660,
+          408
+        ]
+      }
+    }
+  ]
+}

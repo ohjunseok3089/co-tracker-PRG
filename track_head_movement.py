@@ -36,15 +36,13 @@ def process_video(video_path, output_path=None, fps_override=None):
     # Use override FPS if provided, otherwise use detected FPS
     if fps_override is not None:
         fps = float(fps_override)
-        print(f"Video info: {total_frames} frames, {detected_fps:.2f} FPS (detected) -> {fps:.2f} FPS (override), {width}x{height}")
     else:
         fps = detected_fps
-        print(f"Video info: {total_frames} frames, {fps:.2f} FPS, {width}x{height}")
         
-    # Validate FPS
-    if fps <= 0 or fps > 1000:
-        print(f"Warning: Invalid FPS detected ({fps}), defaulting to 30 FPS")
-        fps = 30.0
+    # # Validate FPS
+    # if fps <= 0 or fps > 1000:
+    #     print(f"Warning: Invalid FPS detected ({fps}), defaulting to 30 FPS")
+    #     fps = 30.0
     
     # Initialize tracking variables
     frame_data = []
@@ -52,7 +50,6 @@ def process_video(video_path, output_path=None, fps_override=None):
     frame_idx = 0
     
     print("\nProcessing frames...")
-    print("Frame | Red Circle Position | Head Movement (Horizontal | Vertical)")
     print("-" * 80)
     
     while True:
@@ -108,29 +105,12 @@ def process_video(video_path, output_path=None, fps_override=None):
 
         frame_data.append(frame_info)
 
-        # Print current frame info
-        red_pos_str = f"({curr_red_pos[0]:3d}, {curr_red_pos[1]:3d})" if curr_red_pos else "Not found"
-        if head_movement and not np.isnan(head_movement["horizontal"]["radians"]):
-            h_rad = head_movement["horizontal"]["radians"]
-            h_deg = head_movement["horizontal"]["degrees"]
-            v_rad = head_movement["vertical"]["radians"]
-            v_deg = head_movement["vertical"]["degrees"]
-            movement_str = f"H:({h_rad:6.3f},{h_deg:6.2f}°) V:({v_rad:6.3f},{v_deg:6.2f}°)"
-        else:
-            movement_str = "H:(NaN,NaN°) V:(NaN,NaN°)"
-        print(f"{frame_idx:5d} | {red_pos_str:15s} | {movement_str}")
-        
         # Update previous position
         # update if current detection is valid, otherwise keep previous
         if curr_red_pos is not None:
             prev_red_pos = curr_red_pos
         
         frame_idx += 1
-        
-        # Progress indicator for long videos
-        if frame_idx % 100 == 0:
-            progress = (frame_idx / total_frames) * 100
-            print(f"Progress: {progress:.1f}% ({frame_idx}/{total_frames})")
     
     cap.release()
     

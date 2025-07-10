@@ -121,7 +121,7 @@ def process_video(video_path, output_path=None, fps_override=None):
         print(f"{frame_idx:5d} | {red_pos_str:15s} | {movement_str}")
         
         # Update previous position
-        # Important: Only update if current detection is valid, otherwise keep previous
+        # update if current detection is valid, otherwise keep previous
         if curr_red_pos is not None:
             prev_red_pos = curr_red_pos
         

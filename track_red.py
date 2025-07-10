@@ -112,32 +112,33 @@ def detect_red_circle(image, target_radius: int = 3):
     circles_rounded = np.around(circles).astype(np.uint16)
     circles_array = circles_rounded[0, :]
     
-    best_circle = None
-    best_score = 0
+    # best_circle = None
+    # best_score = 0
+    best_circle = circles_array[0]
     
-    for circle in circles_array:
-        circle_center = (int(circle[0]), int(circle[1]))
-        circle_radius = int(circle[2])
+    # for circle in circles_array:
+    #     circle_center = (int(circle[0]), int(circle[1]))
+    #     circle_radius = int(circle[2])
         
-        # Verify the circle contains the target color
-        mask_circle = np.zeros(red_mask.shape, dtype=np.uint8)
-        cv2.circle(mask_circle, circle_center, circle_radius, (255,), -1)
+    #     # Verify the circle contains the target color
+    #     mask_circle = np.zeros(red_mask.shape, dtype=np.uint8)
+    #     cv2.circle(mask_circle, circle_center, circle_radius, (255,), -1)
         
-        overlap = cv2.bitwise_and(red_mask, mask_circle)
-        red_pixels_in_circle = cv2.countNonZero(overlap)
-        total_pixels_in_circle = cv2.countNonZero(mask_circle)
+    #     overlap = cv2.bitwise_and(red_mask, mask_circle)
+    #     red_pixels_in_circle = cv2.countNonZero(overlap)
+    #     total_pixels_in_circle = cv2.countNonZero(mask_circle)
         
-        red_ratio = red_pixels_in_circle / max(1, total_pixels_in_circle)
+    #     red_ratio = red_pixels_in_circle / max(1, total_pixels_in_circle)
         
-        # Only accept circles with good red color ratio
-        if red_ratio > 0.5:  # Slightly more lenient than before
-            distance_from_center = np.sqrt((circle_center[0] - center_x)**2 + (circle_center[1] - center_y)**2)
-            # Score combines red ratio and proximity to center (prefer closer circles)
-            score = red_ratio * (1.0 / (1.0 + distance_from_center / 100.0))
+    #     # Only accept circles with good red color ratio
+    #     if red_ratio > 0.5:  # Slightly more lenient than before
+    #         distance_from_center = np.sqrt((circle_center[0] - center_x)**2 + (circle_center[1] - center_y)**2)
+    #         # Score combines red ratio and proximity to center (prefer closer circles)
+    #         score = red_ratio * (1.0 / (1.0 + distance_from_center / 100.0))
             
-            if score > best_score:
-                best_score = score
-                best_circle = (circle_center[0], circle_center[1], circle_radius)
+    #         if score > best_score:
+    #             best_score = score
+    #             best_circle = (circle_center[0], circle_center[1], circle_radius)
     
     return best_circle
 

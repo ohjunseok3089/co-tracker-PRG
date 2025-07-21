@@ -5,7 +5,7 @@ import cv2
 import json
 import numpy as np
 import os
-from track_red import detect_red_circle, calculate_head_movement
+from track_red import detect_red_circle, calculate_head_movement, remap_position_from_movement
 
 def process_video(video_path, output_path=None, fps_override=None):
     """
@@ -284,3 +284,4 @@ def main():
 
 if __name__ == "__main__":
     exit(main()) 
+

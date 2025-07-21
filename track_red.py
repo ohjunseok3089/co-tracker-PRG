@@ -144,24 +144,6 @@ def detect_red_circle(image, target_radius: int = 3):
 
 
 def calculate_head_movement(prev_red_pos, curr_red_pos, image_width, image_height, video_fov_degrees=104.0):
-    """
-    Calculate head movement based on red circle position change.
-    
-    Args:
-        prev_red_pos: (x, y) of previous red circle position, or None
-        curr_red_pos: (x, y) of current red circle position, or None  
-        image_width: Width of the image
-        image_height: Height of the image
-        video_fov_degrees: Horizontal field of view in degrees
-    
-    Returns:
-        Dict with horizontal and vertical movement data:
-        {
-            "horizontal": {"radians": float, "degrees": float},  # Yaw (left/right)
-            "vertical": {"radians": float, "degrees": float}     # Pitch (up/down)
-        }
-        or None if calculation not possible
-    """
     if prev_red_pos is None or curr_red_pos is None:
         return None
     
@@ -198,3 +180,47 @@ def calculate_head_movement(prev_red_pos, curr_red_pos, image_width, image_heigh
             "degrees": vertical_angle_degrees
         }
     } 
+
+def remap_position_from_movement(start_pos, head_movement, image_width, image_height, video_fov_degrees=104.0):
+    """
+    Performs the "re-mapping" exercise by converting angular movement back into a predicted pixel position.
+
+    Args:
+        start_pos (tuple): The starting (x, y) coordinates from the previous frame.
+        head_movement (dict): The calculated head movement data containing radians.
+        image_width (int): The width of the video frame.
+        image_height (int): The height of the video frame.
+        video_fov_degrees (float): The horizontal field of view of the camera.
+
+    Returns:
+        tuple: The predicted (x, y) coordinates for the current frame, or None.
+    """
+    if start_pos is None or head_movement is None or np.isnan(head_movement['horizontal']['radians']):
+        return None
+    
+    # Extract angular movements in radians from the input dictionary
+    horizontal_radians = head_movement['horizontal']['radians']
+    vertical_radians = head_movement['vertical']['radians']
+
+    # Convert radians back to degrees to work with FOV
+    horizontal_angle_degrees = np.degrees(horizontal_radians)
+    vertical_angle_degrees = np.degrees(vertical_radians)
+
+    # --- This logic is the inverse of calculate_head_movement ---
+    # Calculate how many pixels correspond to one degree of movement
+    aspect_ratio = image_width / image_height
+    vertical_fov_degrees = video_fov_degrees / aspect_ratio
+    horizontal_pixels_per_degree = image_width / video_fov_degrees
+    vertical_pixels_per_degree = image_height / vertical_fov_degrees
+
+    # Calculate the change in pixels based on the angle
+    # The sign is inverted from the original calculation because we are going from angle back to pixel change.
+    # e.g., a negative angle (left turn) corresponds to a positive pixel change (dot moves right).
+    horizontal_pixel_change = -horizontal_angle_degrees * horizontal_pixels_per_degree
+    vertical_pixel_change = -vertical_angle_degrees * vertical_pixels_per_degree
+
+    # Calculate the new predicted position by adding the change to the start position
+    predicted_x = start_pos[0] + horizontal_pixel_change
+    predicted_y = start_pos[1] + vertical_pixel_change
+
+    return (predicted_x, predicted_y)

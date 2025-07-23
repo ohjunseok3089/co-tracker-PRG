@@ -8,25 +8,18 @@ import os
 from track_red import detect_red_circle, calculate_head_movement, remap_position_from_movement
 
 def process_video_with_prediction_visualization(video_path, output_video_path=None, output_json_path=None, fps_override=None, show_video=False):
-    # Open video
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
         print(f"Error: Could not open video file {video_path}")
         return None
     
-    # Get video properties
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     detected_fps = cap.get(cv2.CAP_PROP_FPS)
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     
-    # Use override FPS if provided, otherwise use detected FPS
-    if fps_override is not None:
-        fps = float(fps_override)
-    else:
-        fps = detected_fps
+    fps = float(fps_override) if fps_override is not None else detected_fps
     
-    # Setup video writer if output path specified
     video_writer = None
     if output_video_path:
         fourcc = cv2.VideoWriter.fourcc(*'mp4v')
@@ -35,12 +28,10 @@ def process_video_with_prediction_visualization(video_path, output_video_path=No
             print(f"Warning: Could not open video writer for {output_video_path}")
             video_writer = None
     
-    # Initialize tracking variables
     frame_data = []
-    all_frames = []  # Store all frames for processing
+    all_frames = []
     frame_idx = 0
     
-    # Read all frames first
     print("\nReading all frames...")
     print("-" * 80)
     
@@ -57,18 +48,14 @@ def process_video_with_prediction_visualization(video_path, output_video_path=No
     total_frames = len(all_frames)
     print(f"Total frames read: {total_frames}")
     
-    # Analysis variables
     prediction_errors = []
     
     print("\nProcessing frames with predictions...")
     print("-" * 80)
-    
-    # Now process frames with prediction logic
     for frame_idx in range(total_frames):
         frame = all_frames[frame_idx]
         vis_frame = frame.copy()
         
-        # Detect red circle in current frame
         red_circle = detect_red_circle(frame)
         
         if red_circle is not None:
@@ -78,21 +65,17 @@ def process_video_with_prediction_visualization(video_path, output_video_path=No
             curr_red_pos = None
             curr_radius = None
         
-        # Initialize for this frame
         head_movement = None
         predicted_pos_for_next_frame = None
         prediction_error = None
         actual_next_pos = None
         
-        # Calculate movement and predict NEXT frame
         if frame_idx == 0:
-            # First frame - no movement
             head_movement = {
                 "horizontal": {"radians": 0.0, "degrees": 0.0},
                 "vertical": {"radians": 0.0, "degrees": 0.0}
             }
         else:
-            # Get previous frame's red circle position
             prev_frame = all_frames[frame_idx - 1]
             prev_red_circle = detect_red_circle(prev_frame)
             
@@ -101,13 +84,11 @@ def process_video_with_prediction_visualization(video_path, output_video_path=No
             else:
                 prev_red_pos = None
             
-            # Calculate movement from previous to current frame
             if curr_red_pos is not None and prev_red_pos is not None:
                 head_movement = calculate_head_movement(
                     prev_red_pos, curr_red_pos, width, height
                 )
                 
-                # Predict where the red circle should be in the NEXT frame
                 predicted_pos_for_next_frame = remap_position_from_movement(
                     curr_red_pos, head_movement, width, height
                 )
@@ -117,7 +98,6 @@ def process_video_with_prediction_visualization(video_path, output_video_path=No
                     "vertical": {"radians": float('nan'), "degrees": float('nan')}
                 }
         
-        # If this is not the last frame, check if our prediction was correct
         if frame_idx < total_frames - 1:
             next_frame = all_frames[frame_idx + 1]
             next_red_circle = detect_red_circle(next_frame)
@@ -125,7 +105,6 @@ def process_video_with_prediction_visualization(video_path, output_video_path=No
             if next_red_circle is not None:
                 actual_next_pos = (float(next_red_circle[0]), float(next_red_circle[1]))
                 
-                # Compare prediction with actual next position
                 if predicted_pos_for_next_frame is not None and actual_next_pos is not None:
                     error_x = predicted_pos_for_next_frame[0] - actual_next_pos[0]
                     error_y = predicted_pos_for_next_frame[1] - actual_next_pos[1]
@@ -138,38 +117,31 @@ def process_video_with_prediction_visualization(video_path, output_video_path=No
                     }
                     prediction_errors.append(prediction_error["distance"])
         
-        # Draw visualizations on frame
-        # Draw actual red circle (if detected)
         if curr_red_pos is not None:
             display_radius = max(3, curr_radius if curr_radius is not None else 3)
             cv2.circle(vis_frame, (int(curr_red_pos[0]), int(curr_red_pos[1])), 
-                      display_radius, (0, 0, 255), 2)  # Red circle outline
+                      display_radius, (0, 0, 255), 2)
             cv2.circle(vis_frame, (int(curr_red_pos[0]), int(curr_red_pos[1])), 
-                      2, (0, 0, 255), -1)  # Red center dot
+                      2, (0, 0, 255), -1)
             
-            # Add "ACTUAL" label
             cv2.putText(vis_frame, "ACTUAL", 
                        (int(curr_red_pos[0]) + 10, int(curr_red_pos[1]) - 10),
                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
         
-        # Draw predicted position for NEXT frame (if available)
         if predicted_pos_for_next_frame is not None:
             cv2.circle(vis_frame, (int(predicted_pos_for_next_frame[0]), int(predicted_pos_for_next_frame[1])), 
-                      5, (0, 255, 0), 2)  # Green circle outline
+                      5, (0, 255, 0), 2)
             cv2.circle(vis_frame, (int(predicted_pos_for_next_frame[0]), int(predicted_pos_for_next_frame[1])), 
-                      2, (0, 255, 0), -1)  # Green center dot
+                      2, (0, 255, 0), -1)
             
-            # Add "PREDICTED NEXT" label
             cv2.putText(vis_frame, "PREDICTED NEXT", 
                        (int(predicted_pos_for_next_frame[0]) + 10, int(predicted_pos_for_next_frame[1]) + 15),
                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
             
-            # Draw line from current red to predicted next position
             if curr_red_pos is not None:
                 cv2.line(vis_frame, (int(curr_red_pos[0]), int(curr_red_pos[1])),
                         (int(predicted_pos_for_next_frame[0]), int(predicted_pos_for_next_frame[1])), (255, 255, 0), 1)
         
-        # Add frame information overlay
         info_y = 30
         cv2.putText(vis_frame, f"Frame: {frame_idx}/{total_frames-1}", 
                    (10, info_y), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
@@ -184,7 +156,6 @@ def process_video_with_prediction_visualization(video_path, output_video_path=No
             cv2.putText(vis_frame, f"H: {head_movement['horizontal']['degrees']:.2f}° V: {head_movement['vertical']['degrees']:.2f}°", 
                        (10, info_y), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
         
-        # Prepare frame data
         frame_info = {
             "frame_index": frame_idx,
             "timestamp": frame_idx / fps,
@@ -201,30 +172,26 @@ def process_video_with_prediction_visualization(video_path, output_video_path=No
             },
             "previous_frame": {
                 "index": frame_idx - 1 if frame_idx > 0 else None,
-                "red_position": None  # Will be filled by previous frame's data if needed
+                "red_position": None
             }
         }
 
         frame_data.append(frame_info)
         
-        # Write frame to output video
         if video_writer is not None:
             video_writer.write(vis_frame)
         
-        # Display frame if requested
         if show_video:
             cv2.imshow('Red Circle Tracking with Predictions', vis_frame)
             key = cv2.waitKey(1) & 0xFF
             if key == ord('q'):
                 break
         
-        # Update previous position
         if curr_red_pos is not None:
             prev_red_pos = curr_red_pos
         
         frame_idx += 1
         
-        # Progress indicator
         if frame_idx % 30 == 0:
             print(f"Processed {frame_idx}/{total_frames} frames ({frame_idx/total_frames*100:.1f}%)")
     
@@ -234,7 +201,6 @@ def process_video_with_prediction_visualization(video_path, output_video_path=No
     if show_video:
         cv2.destroyAllWindows()
     
-    # Calculate analysis statistics
     detected_frames = sum(1 for f in frame_data if f["red_circle"]["detected"])
     valid_predictions = len(prediction_errors)
     

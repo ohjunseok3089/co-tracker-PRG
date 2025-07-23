@@ -55,7 +55,6 @@ def process_video_past_frame_prediction(video_path, output_video_path=None, outp
             if curr_red_pos is not None and prev_red_pos is not None:
                 head_movement = calculate_head_movement(prev_red_pos, curr_red_pos, width, height)
                 
-                # Use previous movement to predict current position
                 if prev_movement is not None and not np.isnan(prev_movement['horizontal']['radians']):
                     predicted_pos = remap_position_from_movement(prev_red_pos, prev_movement, width, height)
                     
@@ -76,14 +75,12 @@ def process_video_past_frame_prediction(video_path, output_video_path=None, outp
         if head_movement is not None and not np.isnan(head_movement.get('horizontal', {}).get('radians', float('nan'))):
             prev_movement = head_movement
         
-        # Draw actual red circle
         if curr_red_pos is not None:
             display_radius = max(3, curr_radius if curr_radius is not None else 3)
             cv2.circle(vis_frame, (int(curr_red_pos[0]), int(curr_red_pos[1])), display_radius, (0, 0, 255), 2)
             cv2.circle(vis_frame, (int(curr_red_pos[0]), int(curr_red_pos[1])), 2, (0, 0, 255), -1)
             cv2.putText(vis_frame, "ACTUAL", (int(curr_red_pos[0]) + 10, int(curr_red_pos[1]) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
         
-        # Draw predicted position (current frame prediction from past movement)
         if predicted_pos is not None:
             cv2.circle(vis_frame, (int(predicted_pos[0]), int(predicted_pos[1])), 5, (0, 255, 0), 2)
             cv2.circle(vis_frame, (int(predicted_pos[0]), int(predicted_pos[1])), 2, (0, 255, 0), -1)
@@ -92,7 +89,6 @@ def process_video_past_frame_prediction(video_path, output_video_path=None, outp
             if curr_red_pos is not None:
                 cv2.line(vis_frame, (int(predicted_pos[0]), int(predicted_pos[1])), (int(curr_red_pos[0]), int(curr_red_pos[1])), (255, 255, 0), 1)
         
-        # Frame info
         cv2.putText(vis_frame, f"Frame: {frame_idx}/{total_frames-1}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
         if prediction_error is not None:
             cv2.putText(vis_frame, f"Error: {prediction_error['distance']:.2f} px", (10, 55), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)

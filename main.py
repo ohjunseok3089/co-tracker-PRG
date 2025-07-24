@@ -125,18 +125,26 @@ if __name__ == "__main__":
 
     # Iterating over video frames, processing one window at a time:
     try:
-        fps, num_frames = extract_video_info(args.video_path)
-        if num_frames is None:
-            raise ValueError("Could not determine valid number of frames.")
+        # Try to load the video first - this is more reliable than metadata
         full_vid = read_video_from_path(args.video_path)
         
         if full_vid is None or len(full_vid) == 0:
             raise ValueError("Failed to load video or video is empty")
-            
-        # Use the actual length of the loaded video if it differs from metadata
-        actual_num_frames = len(full_vid)
-        if actual_num_frames != num_frames:
-            num_frames = actual_num_frames
+        
+        # Use the actual length of the loaded video as primary source
+        num_frames = len(full_vid)
+        print(f"Successfully loaded video with {num_frames} frames.")
+        
+        # Try to get FPS from metadata, but don't fail if it's not available
+        try:
+            fps, metadata_frames = extract_video_info(args.video_path)
+            if fps is not None:
+                print(f"Video FPS: {fps}")
+            if metadata_frames is not None and metadata_frames != num_frames:
+                print(f"Note: Metadata reported {metadata_frames} frames, but actual video has {num_frames} frames.")
+        except Exception as e:
+            print(f"Could not extract video metadata, but video loaded successfully: {e}")
+            fps = None
             
     except Exception as e:
         print(f"Error processing video {args.video_path}: {e}")

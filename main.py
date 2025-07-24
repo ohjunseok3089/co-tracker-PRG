@@ -148,7 +148,7 @@ if __name__ == "__main__":
     print(f"Center coordinates: ({center_x}, {center_y})")
     
     # Iterate through the video frame by frame, processing pairs of consecutive frames
-    for i in range(num_frames - 1):
+    for i in range(int(num_frames) - 1):
         start_frame = i
         end_frame = i + 2
         

@@ -123,19 +123,15 @@ if __name__ == "__main__":
         )
         return result
 
-    # Iterating over video frames, processing one window at a time:
     try:
-        # Try to load the video first - this is more reliable than metadata
         full_vid = read_video_from_path(args.video_path)
         
         if full_vid is None or len(full_vid) == 0:
             raise ValueError("Failed to load video or video is empty")
         
-        # Use the actual length of the loaded video as primary source
         num_frames = len(full_vid)
         print(f"Successfully loaded video with {num_frames} frames.")
         
-        # Try to get FPS from metadata, but don't fail if it's not available
         try:
             fps, metadata_frames = extract_video_info(args.video_path)
             if fps is not None:
@@ -151,13 +147,10 @@ if __name__ == "__main__":
         print("Skipping this video due to corruption or loading issues.")
         exit(1)
     
-    # Calculate center coordinates for queries
     frame_height, frame_width = full_vid[0].shape[:2]
     center_x = frame_width / 2.0
     center_y = frame_height / 2.0
     
-    # Set queries to center of video [time, x coord, y coord]
-    # Model expects (B, N, D) where B=batch, N=num_queries, D=3 for [time, x, y]
     queries = torch.tensor([
         [[0., center_x, center_y]]
     ])
@@ -166,25 +159,20 @@ if __name__ == "__main__":
     print(f"Video dimensions: {frame_width}x{frame_height}")
     print(f"Center coordinates: ({center_x}, {center_y})")
     
-    # Ensure num_frames is valid before proceeding
     if not isinstance(num_frames, int) or num_frames <= 1:
         exit(1)
     
-    # Iterate through the video frame by frame, processing pairs of consecutive frames
     for i in range(num_frames - 1):
         start_frame = i
         end_frame = i + 2
         
         print(f"Processing frames {start_frame} to {end_frame}")
         
-        # Create a 2-frame video chunk
-        video_chunk = torch.tensor(full_vid[start_frame:end_frame], device=DEFAULT_DEVICE).float().permute(0, 3, 1, 2)[None]
+        video_chunk = torch.tensor(full_vid[start_frame], device=DEFAULT_DEVICE).float().permute(0, 3, 1, 2)[None]
 
-        # Reset model state for each pair
         if hasattr(model, 'reset'):
             model.reset()
         
-        # Process the 2-frame chunk
         pred_tracks, pred_visibility = model(
             video_chunk,
             is_first_step=True,
@@ -192,14 +180,21 @@ if __name__ == "__main__":
             grid_query_frame=args.grid_query_frame,
             queries=queries,
         )
+        video_chunk = torch.tensor(full_vid[start_frame:end_frame], device=DEFAULT_DEVICE).float().permute(0, 3, 1, 2)[None]
+        
+        pred_tracks, pred_visibility = model(
+            video_chunk,
+            is_first_step=False,
+            grid_size=args.grid_size,
+            grid_query_frame=args.grid_query_frame,
+            queries=queries,
+        )
         
         print("Tracks are computed for the 2-frame sequence.")
 
-        # Save a video with predicted tracks for the 2-frame sequence
         seq_name = os.path.basename(args.video_path)
         vis = Visualizer(save_dir="saved_videos", pad_value=120, linewidth=3)
         
-        # The video tensor for visualization is the same as the input chunk
         vis.visualize(
             video_chunk, 
             pred_tracks, 

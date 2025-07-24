@@ -27,10 +27,13 @@ def extract_video_info(video_path):
         fps = reader.get_meta_data()['fps']
         num_frames = reader.get_length()
         reader.close()
+        if num_frames == float('inf') or num_frames < 1:
+            print(f"Warning: Could not determine valid number of frames for {video_path}. Got {num_frames}.")
+            return fps, None
         return fps, num_frames
     except Exception as e:
         print(f"Error loading video {video_path}: {e}")
-        raise ValueError(f"Failed to load video: {video_path}")
+        return None, None
 
 def extract_frames(video, seconds, fps, start_frame, num_frames):
     frames_to_extract = int(fps * seconds)
@@ -123,10 +126,18 @@ if __name__ == "__main__":
     # Iterating over video frames, processing one window at a time:
     try:
         fps, num_frames = extract_video_info(args.video_path)
+        if num_frames is None:
+            raise ValueError("Could not determine valid number of frames.")
         full_vid = read_video_from_path(args.video_path)
         
         if full_vid is None or len(full_vid) == 0:
             raise ValueError("Failed to load video or video is empty")
+            
+        # Use the actual length of the loaded video if it differs from metadata
+        actual_num_frames = len(full_vid)
+        if actual_num_frames != num_frames:
+            num_frames = actual_num_frames
+            
     except Exception as e:
         print(f"Error processing video {args.video_path}: {e}")
         print("Skipping this video due to corruption or loading issues.")
@@ -147,8 +158,12 @@ if __name__ == "__main__":
     print(f"Video dimensions: {frame_width}x{frame_height}")
     print(f"Center coordinates: ({center_x}, {center_y})")
     
+    # Ensure num_frames is valid before proceeding
+    if not isinstance(num_frames, int) or num_frames <= 1:
+        exit(1)
+    
     # Iterate through the video frame by frame, processing pairs of consecutive frames
-    for i in range(int(num_frames) - 1):
+    for i in range(num_frames - 1):
         start_frame = i
         end_frame = i + 2
         

@@ -26,7 +26,6 @@ def process_video_past_frame_prediction(video_path, output_video_path=None, outp
     
     frame_data = []
     prev_red_pos = None
-    prev_movement = None
     frame_idx = 0
     prediction_errors = []
     
@@ -36,7 +35,7 @@ def process_video_past_frame_prediction(video_path, output_video_path=None, outp
             break
         
         vis_frame = frame.copy()
-        red_circle = detect_red_circle(frame)
+        red_circle = detect_red_circle(frame) 
         
         if red_circle is not None:
             curr_red_pos = (float(red_circle[0]), float(red_circle[1]))
@@ -46,7 +45,7 @@ def process_video_past_frame_prediction(video_path, output_video_path=None, outp
             curr_radius = None
         
         head_movement = None
-        predicted_pos = None
+        recalculated_pos = None
         prediction_error = None
         
         if frame_idx == 0:
@@ -55,39 +54,36 @@ def process_video_past_frame_prediction(video_path, output_video_path=None, outp
             if curr_red_pos is not None and prev_red_pos is not None:
                 head_movement = calculate_head_movement(prev_red_pos, curr_red_pos, width, height)
                 
-                if prev_movement is not None and not np.isnan(prev_movement['horizontal']['radians']):
-                    predicted_pos = remap_position_from_movement(prev_red_pos, prev_movement, width, height)
+                if head_movement is not None and not np.isnan(head_movement['horizontal']['radians']):
+                    recalculated_pos = remap_position_from_movement(prev_red_pos, head_movement, width, height)
                     
-                    if predicted_pos is not None:
-                        error_x = predicted_pos[0] - curr_red_pos[0]
-                        error_y = predicted_pos[1] - curr_red_pos[1]
+                    if recalculated_pos is not None:
+                        error_x = recalculated_pos[0] - curr_red_pos[0]
+                        error_y = recalculated_pos[1] - curr_red_pos[1]
                         prediction_error = {
                             "error_x": float(error_x),
                             "error_y": float(error_y),
                             "distance": float(np.sqrt(error_x**2 + error_y**2)),
-                            "predicted_pos": [float(predicted_pos[0]), float(predicted_pos[1])],
+                            "recalculated_pos": [float(recalculated_pos[0]), float(recalculated_pos[1])],
                             "actual_pos": [float(curr_red_pos[0]), float(curr_red_pos[1])]
                         }
                         prediction_errors.append(prediction_error["distance"])
             else:
                 head_movement = {"horizontal": {"radians": float('nan'), "degrees": float('nan')}, "vertical": {"radians": float('nan'), "degrees": float('nan')}}
         
-        if head_movement is not None and not np.isnan(head_movement.get('horizontal', {}).get('radians', float('nan'))):
-            prev_movement = head_movement
-        
         if curr_red_pos is not None:
             display_radius = max(3, curr_radius if curr_radius is not None else 3)
             cv2.circle(vis_frame, (int(curr_red_pos[0]), int(curr_red_pos[1])), display_radius, (0, 0, 255), 2)
             cv2.circle(vis_frame, (int(curr_red_pos[0]), int(curr_red_pos[1])), 2, (0, 0, 255), -1)
-            cv2.putText(vis_frame, "ACTUAL", (int(curr_red_pos[0]) + 10, int(curr_red_pos[1]) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
+            cv2.putText(vis_frame, "Actual", (int(curr_red_pos[0]) + 10, int(curr_red_pos[1]) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
         
-        if predicted_pos is not None:
-            cv2.circle(vis_frame, (int(predicted_pos[0]), int(predicted_pos[1])), 5, (0, 255, 0), 2)
-            cv2.circle(vis_frame, (int(predicted_pos[0]), int(predicted_pos[1])), 2, (0, 255, 0), -1)
-            cv2.putText(vis_frame, "PREDICTED", (int(predicted_pos[0]) + 10, int(predicted_pos[1]) + 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
+        if recalculated_pos is not None:
+            cv2.circle(vis_frame, (int(recalculated_pos[0]), int(recalculated_pos[1])), 5, (0, 255, 0), 2)
+            cv2.circle(vis_frame, (int(recalculated_pos[0]), int(recalculated_pos[1])), 2, (0, 255, 0), -1)
+            cv2.putText(vis_frame, "Calculated", (int(recalculated_pos[0]) + 10, int(recalculated_pos[1]) + 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
             
             if curr_red_pos is not None:
-                cv2.line(vis_frame, (int(predicted_pos[0]), int(predicted_pos[1])), (int(curr_red_pos[0]), int(curr_red_pos[1])), (255, 255, 0), 1)
+                cv2.line(vis_frame, (int(recalculated_pos[0]), int(recalculated_pos[1])), (int(curr_red_pos[0]), int(curr_red_pos[1])), (255, 255, 0), 1)
         
         cv2.putText(vis_frame, f"Frame: {frame_idx}/{total_frames-1}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
         if prediction_error is not None:
@@ -100,7 +96,7 @@ def process_video_past_frame_prediction(video_path, output_video_path=None, outp
             "timestamp": frame_idx / fps,
             "red_circle": {"detected": curr_red_pos is not None, "position": curr_red_pos, "radius": curr_radius},
             "head_movement": head_movement,
-            "prediction": {"predicted_position": predicted_pos, "error": prediction_error}
+            "prediction": {"recalculated_position": recalculated_pos, "error": prediction_error}
         }
         frame_data.append(frame_info)
         
@@ -116,8 +112,6 @@ def process_video_past_frame_prediction(video_path, output_video_path=None, outp
             prev_red_pos = curr_red_pos
         
         frame_idx += 1
-        if frame_idx % 30 == 0:
-            print(f"Processed {frame_idx}/{total_frames} frames")
     
     cap.release()
     if video_writer is not None:
@@ -144,16 +138,6 @@ def process_video_past_frame_prediction(video_path, output_video_path=None, outp
             "max_error_px": float(np.max(prediction_errors))
         }
     
-    print(f"Total frames: {len(frame_data)}")
-    print(f"Detected: {detected_frames} ({detected_frames/len(frame_data)*100:.1f}%)")
-    print(f"Valid predictions: {valid_predictions}")
-    
-    if prediction_errors:
-        acc = analysis_results["prediction_accuracy"]
-        print(f"Mean error: {acc['mean_error_px']:.2f} px")
-        print(f"Median error: {acc['median_error_px']:.2f} px")
-        print(f"Range: {acc['min_error_px']:.2f} - {acc['max_error_px']:.2f} px")
-    
     if output_json_path:
         output_data = {
             "metadata": {"video_path": video_path, "analysis_type": "past_frame_prediction"},
@@ -175,9 +159,6 @@ def process_video_past_frame_prediction(video_path, output_video_path=None, outp
         
         with open(output_json_path, 'w') as f:
             json.dump(output_data, f, indent=2)
-        print(f"Results saved to: {output_json_path}")
-    
-    return {"frame_data": frame_data, "analysis": analysis_results}
 
 def main():
     parser = argparse.ArgumentParser(description='Past frame prediction tracking')
@@ -200,13 +181,7 @@ def main():
     if args.output_json is None:
         args.output_json = f"{video_name}_past_analysis.json"
     
-    results = process_video_past_frame_prediction(args.video_path, args.output_video, args.output_json, args.fps, args.show)
-    
-    if results is None:
-        return 1
-    
-    print("Past frame prediction completed!")
-    return 0
+    process_video_past_frame_prediction(args.video_path, args.output_video, args.output_json, args.fps, args.show)
 
 if __name__ == "__main__":
-    exit(main()) 
+    exit(main())

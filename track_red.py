@@ -1,19 +1,19 @@
 import cv2
 import numpy as np
-
 def detect_red_circle(image, target_radius: int = 3):
     if image is None:
         return None
 
     h, w = image.shape[:2]
-    center_x, center_y = w // 2, h // 2
     
     target_bgr = np.array([[[48, 28, 255]]], dtype=np.uint8)
     target_hsv = cv2.cvtColor(target_bgr, cv2.COLOR_BGR2HSV)[0][0]
     target_h, target_s, target_v = int(target_hsv[0]), int(target_hsv[1]), int(target_hsv[2])
     
+    # Convert image to HSV
     hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     
+    # Define tolerance ranges for the specific red color
     h_range = 10
     s_range = 30
     v_range = 40
@@ -25,104 +25,69 @@ def detect_red_circle(image, target_radius: int = 3):
     v_min = max(0, target_v - v_range)
     v_max = min(255, target_v + v_range)
     
+    # Create mask for target red color
     lower_red = np.array([h_min, s_min, v_min], dtype=np.uint8)
     upper_red = np.array([h_max, s_max, v_max], dtype=np.uint8)
     red_mask = cv2.inRange(hsv_image, lower_red, upper_red)
     
+    # Handle red wrap-around in HSV
     if target_h < 10:
         lower_red2 = np.array([max(0, target_h + 170), s_min, v_min], dtype=np.uint8)
         upper_red2 = np.array([179, s_max, v_max], dtype=np.uint8)
         red_mask2 = cv2.inRange(hsv_image, lower_red2, upper_red2)
         red_mask = cv2.bitwise_or(red_mask, red_mask2)
     
+    # Clean up the mask
     kernel = np.ones((3,3), np.uint8)
     red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_OPEN, kernel)
     red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, kernel)
     
-    param_sets = [
-        {"param1": 30, "param2": 8, "minRadius": 1, "maxRadius": target_radius + 3},
-        {"param1": 40, "param2": 10, "minRadius": max(1, target_radius - 1), "maxRadius": target_radius + 2},
-        {"param1": 20, "param2": 5, "minRadius": 1, "maxRadius": target_radius + 5},
-    ]
-    
-    circles = None
-    for params in param_sets:
-        circles = cv2.HoughCircles(
-            red_mask,
-            cv2.HOUGH_GRADIENT,
-            dp=1,
-            minDist=target_radius * 2,
-            param1=params['param1'],
-            param2=params['param2'],
-            minRadius=params['minRadius'],
-            maxRadius=params['maxRadius']
-        )
-        if circles is not None:
-            break
-    
-    if circles is None:
-        contours, _ = cv2.findContours(red_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        alternative_circles = []
-        
-        for contour in contours:
-            area = cv2.contourArea(contour)
-            if area < 5:
-                continue
-                
-            perimeter = cv2.arcLength(contour, True)
-            if perimeter == 0:
-                continue
-                
-            circularity = 4 * np.pi * area / (perimeter * perimeter)
-            
-            if circularity > 0.3:
-                (x, y), radius = cv2.minEnclosingCircle(contour)
-                center = (int(x), int(y))
-                radius = int(radius)
-                
-                if 1 <= radius <= target_radius + 5:
-                    alternative_circles.append([center[0], center[1], radius])
-        
-        if alternative_circles:
-            circles = np.array([[alternative_circles]], dtype=np.float32)
-    
+    contours, _ = cv2.findContours(red_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    circles = []
+    for contour in contours:
+        area = cv2.contourArea(contour)
+        if area < 5: continue
+        perimeter = cv2.arcLength(contour, True) # gets contour's perimeter
+        if perimeter == 0: continue
+
+        (x, y), radius = cv2.minEnclosingCircle(contour)
+        if 1 <= radius <= target_radius + 5:
+            circles.append([int(x), int(y), int(radius)])
+
     if circles is None:
         return None
     
-    circles_rounded = np.around(circles).astype(np.uint16)
-    circles_array = circles_rounded[0, :]
+    if circles:
+        circles = np.array([circles], dtype=np.float32)
     
-    best_circle = None
-    best_score = 0
+    circles_array = np.uint16(np.around(circles[0, :]))
     
+    valid_circles = []
     for circle in circles_array:
-        circle_center = (int(circle[0]), int(circle[1]))
-        circle_radius = int(circle[2])
+        center = (circle[0], circle[1])
+        radius = circle[2]
         
+        # Check the "redness" of the detected circle area
         mask_circle = np.zeros(red_mask.shape, dtype=np.uint8)
-        cv2.circle(mask_circle, circle_center, circle_radius, (255,), -1)
-        
+        cv2.circle(mask_circle, center, radius, (255,), -1)
         overlap = cv2.bitwise_and(red_mask, mask_circle)
         red_pixels_in_circle = cv2.countNonZero(overlap)
-        total_pixels_in_circle = cv2.countNonZero(mask_circle)
-        
-        red_ratio = red_pixels_in_circle / max(1, total_pixels_in_circle)
+        total_pixels_in_circle = max(1, cv2.countNonZero(mask_circle))
+        red_ratio = red_pixels_in_circle / total_pixels_in_circle
         
         if red_ratio > 0.5:
-            distance_from_center = np.sqrt((circle_center[0] - center_x)**2 + (circle_center[1] - center_y)**2)
-            score = red_ratio * (1.0 / (1.0 + distance_from_center / 100.0))
+            valid_circles.append(circle)
             
-            if score > best_score:
-                best_score = score
-                best_circle = (circle_center[0], circle_center[1], circle_radius)
+    if not valid_circles:
+        return None
+        
+    # Average the positions and radii of the valid circles
+    avg_circle = np.mean(valid_circles, axis=0)
+    avg_center_x = int(avg_circle[0])
+    avg_center_y = int(avg_circle[1])
+    avg_radius = int(avg_circle[2])
     
-    if best_circle is None and len(circles_array) > 0:
-        first_circle = circles_array[0]
-        best_circle = (int(first_circle[0]), int(first_circle[1]), int(first_circle[2]))
-    
-    return best_circle
-
-
+    return (avg_center_x, avg_center_y, avg_radius)
 def calculate_head_movement(prev_red_pos, curr_red_pos, image_width, image_height, video_fov_degrees=104.0):
     if prev_red_pos is None or curr_red_pos is None:
         return None

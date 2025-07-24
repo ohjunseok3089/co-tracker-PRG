@@ -147,77 +147,45 @@ if __name__ == "__main__":
     print(f"Video dimensions: {frame_width}x{frame_height}")
     print(f"Center coordinates: ({center_x}, {center_y})")
     
-    start_frame = 0
-    while start_frame < num_frames:
-        print(f"Processing frames from {start_frame} to {min(start_frame + int(fps * FRAMES_INTERVAL), num_frames)}")
-        video, end_frame = extract_frames(full_vid, FRAMES_INTERVAL, fps, start_frame, num_frames)
+    # Iterate through the video frame by frame, processing pairs of consecutive frames
+    for i in range(num_frames - 1):
+        start_frame = i
+        end_frame = i + 2
         
-        # Skip if no frames to process
-        if end_frame <= start_frame or len(video) == 0:
-            print(f"No frames to process in segment {start_frame} to {end_frame}, skipping...")
-            break
+        print(f"Processing frames {start_frame} to {end_frame}")
         
+        # Create a 2-frame video chunk
+        video_chunk = torch.tensor(full_vid[start_frame:end_frame], device=DEFAULT_DEVICE).float().permute(0, 3, 1, 2)[None]
+
+        # Reset model state for each pair
         if hasattr(model, 'reset'):
             model.reset()
-        else:
-            # Reinitialize the model's online processing state properly
-            if hasattr(model, 'model') and hasattr(model.model, 'init_video_online_processing'):
-                model.model.init_video_online_processing()
-            if hasattr(model, 'queries'):
-                delattr(model, 'queries')
-            if hasattr(model, 'N'):
-                delattr(model, 'N')
-            if hasattr(model, 'model') and hasattr(model.model, 'reset'):
-                model.model.reset()
         
-        print("Model state reset for this segment.")
-        
-        window_frames = []
-        
-        is_first_step = True
-        
-        for i, frame in enumerate(video):
-            if i % model.step == 0 and i != 0:
-                print(f"Calling _process_step at frame {i} (is_first_step={is_first_step})")
-                pred_tracks, pred_visibility = _process_step(
-                    window_frames,
-                    is_first_step,
-                    grid_size=args.grid_size,
-                    grid_query_frame=args.grid_query_frame,
-                    queries=queries,
-                )
-                print(f"_process_step completed at frame {i}")
-                is_first_step = False
-            window_frames.append(frame)
-        
-        if len(window_frames) > 0:
-            print("Calling _process_step for final frames...")
-            pred_tracks, pred_visibility = _process_step(
-                window_frames,
-                is_first_step,
-                grid_size=args.grid_size,
-                grid_query_frame=args.grid_query_frame,
-                queries=queries,
-            )
-            print("_process_step for final frames completed.")
-
-        print("Tracks are computed")
-
-        # save a video with predicted tracks
-        seq_name = args.video_path.split("/")[-1]
-        print("Preparing video tensor for visualization...")
-        video_tensor = torch.tensor(np.stack(window_frames), device=DEFAULT_DEVICE).permute(
-            0, 3, 1, 2
-        )[None]
-        print("Saving video with predicted tracks...")
-        vis = Visualizer(save_dir="/mas/robots/prg-egocom/EGOCOM/720p/5min_parts/dataset/saved_videos", pad_value=120, linewidth=3)
-        vis.visualize(
-            video_tensor, pred_tracks, pred_visibility, query_frame=args.grid_query_frame, filename=f"{seq_name}_{start_frame}_{end_frame}.mp4"
+        # Process the 2-frame chunk
+        pred_tracks, pred_visibility = model(
+            video_chunk,
+            is_first_step=True,
+            grid_size=args.grid_size,
+            grid_query_frame=args.grid_query_frame,
+            queries=queries,
         )
-        print(f"Video saved to /mas/robots/prg-egocom/EGOCOM/720p/5min_parts/dataset/saved_videos/{seq_name}_{start_frame}_{end_frame}.mp4")
         
-        # Update start_frame for next iteration
-        start_frame = end_frame
-        print(f"Processed frames from {start_frame} to {end_frame}")
+        print("Tracks are computed for the 2-frame sequence.")
+
+        # Save a video with predicted tracks for the 2-frame sequence
+        seq_name = os.path.basename(args.video_path)
+        vis = Visualizer(save_dir="saved_videos", pad_value=120, linewidth=3)
+        
+        # The video tensor for visualization is the same as the input chunk
+        vis.visualize(
+            video_chunk, 
+            pred_tracks, 
+            pred_visibility, 
+            query_frame=args.grid_query_frame, 
+            filename=f"{seq_name}_seq_{end_frame}.mp4"
+        )
+        print(f"Video saved: saved_videos/{seq_name}_seq_{end_frame}.mp4")
+
+    print(f"Processed all {num_frames - 1} frame pairs.")
 
     print(f"Processed all frames from 0 to {num_frames}")

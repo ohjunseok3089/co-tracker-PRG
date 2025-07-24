@@ -161,26 +161,27 @@ if __name__ == "__main__":
     
     if not isinstance(num_frames, int) or num_frames <= 1:
         exit(1)
+
+    seq_name = os.path.basename(args.video_path)
+    vis = Visualizer(save_dir="saved_videos", pad_value=120, linewidth=3)
+    
+    print("Processing video in 2-frame pairs...")
     
     for i in range(num_frames - 1):
         start_frame = i
         end_frame = i + 2
         
-        print(f"Processing frames {start_frame} to {end_frame}")
+        print(f"Processing frames {start_frame} to {end_frame-1}")
         
-        video_chunk = torch.tensor(full_vid[start_frame], device=DEFAULT_DEVICE).float().permute(0, 3, 1, 2)[None]
-
-        if hasattr(model, 'reset'):
-            model.reset()
+        video_chunk = torch.tensor(full_vid[start_frame:end_frame], device=DEFAULT_DEVICE).float().permute(0, 3, 1, 2)[None]
         
-        pred_tracks, pred_visibility = model(
+        result = model(
             video_chunk,
             is_first_step=True,
             grid_size=args.grid_size,
             grid_query_frame=args.grid_query_frame,
             queries=queries,
         )
-        video_chunk = torch.tensor(full_vid[start_frame:end_frame], device=DEFAULT_DEVICE).float().permute(0, 3, 1, 2)[None]
         
         pred_tracks, pred_visibility = model(
             video_chunk,
@@ -190,20 +191,18 @@ if __name__ == "__main__":
             queries=queries,
         )
         
-        print("Tracks are computed for the 2-frame sequence.")
-
-        seq_name = os.path.basename(args.video_path)
-        vis = Visualizer(save_dir="saved_videos", pad_value=120, linewidth=3)
-        
-        vis.visualize(
-            video_chunk, 
-            pred_tracks, 
-            pred_visibility, 
-            query_frame=args.grid_query_frame, 
-            filename=f"{seq_name}_seq_{end_frame}.mp4"
-        )
-        print(f"Video saved: saved_videos/{seq_name}_seq_{end_frame}.mp4")
+        if pred_tracks is not None:
+            print(f"Tracks computed for frames {start_frame}-{end_frame-1}")
+            
+            vis.visualize(
+                video_chunk, 
+                pred_tracks, 
+                pred_visibility, 
+                query_frame=args.grid_query_frame, 
+                filename=f"{seq_name}_frames_{start_frame}_{end_frame-1}.mp4"
+            )
+            print(f"Video saved: saved_videos/{seq_name}_frames_{start_frame}_{end_frame-1}.mp4")
+        else:
+            print(f"Warning: No tracks generated for frames {start_frame}-{end_frame-1}")
 
     print(f"Processed all {num_frames - 1} frame pairs.")
-
-    print(f"Processed all frames from 0 to {num_frames}")

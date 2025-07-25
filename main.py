@@ -207,6 +207,18 @@ if __name__ == "__main__":
         print(f"DEBUG: pred_tracks is None: {pred_tracks is None}")
         if pred_tracks is not None:
             print(f"DEBUG: pred_tracks.shape: {pred_tracks.shape}")
+
+            # Check for initial frozen frames
+            frozen_frames_count = 0
+            tracks_data = pred_tracks.squeeze(0)
+            if tracks_data.shape[0] > 1:
+                first_frame_tracks = tracks_data[0]
+                for i in range(1, tracks_data.shape[0]):
+                    if torch.all(tracks_data[i] == first_frame_tracks):
+                        frozen_frames_count += 1
+                    else:
+                        break
+                print(f"DEBUG: Found {frozen_frames_count + 1} initial frozen frames.")
         print(f"DEBUG: pred_visibility is None: {pred_visibility is None}")
         if pred_visibility is not None:
             print(f"DEBUG: pred_visibility.shape: {pred_visibility.shape}")

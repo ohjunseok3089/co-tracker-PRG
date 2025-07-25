@@ -19,7 +19,7 @@ from cotracker.predictor import CoTrackerOnlinePredictor
 DEFAULT_DEVICE = (
     "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
 )
-FRAMES_INTERVAL = 0.2
+FRAMES_INTERVAL = 0.5
 
 def extract_video_info(video_path):
     try:

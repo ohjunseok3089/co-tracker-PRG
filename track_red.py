@@ -54,12 +54,10 @@ def detect_red_circle(image, target_radius: int = 3):
         if 1 <= radius <= target_radius + 5:
             circles.append([int(x), int(y), int(radius)])
 
-    if circles is None:
+    if not circles:
         return None
-    
-    if circles:
-        circles = np.array([circles], dtype=np.float32)
-    
+
+    circles = np.array([circles], dtype=np.float32)
     circles_array = np.uint16(np.around(circles[0, :]))
     
     valid_circles = []

@@ -181,7 +181,8 @@ if __name__ == "__main__":
         
         for i, frame in enumerate(video):
             ret, cv_frame = cap.read()
-            if detect_red_circle(cv_frame) is None:
+                
+            if ret and detect_red_circle(cv_frame) is None:
                 print(f"Red circle not detected in frame {start_frame + i}. Resetting.")
                 start_frame = start_frame + i
                 break

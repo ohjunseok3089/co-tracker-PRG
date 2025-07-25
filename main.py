@@ -19,7 +19,7 @@ from cotracker.predictor import CoTrackerOnlinePredictor
 DEFAULT_DEVICE = (
     "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
 )
-FRAMES_INTERVAL = 10
+FRAMES_INTERVAL = 0.2
 
 def extract_video_info(video_path):
     try:
@@ -27,13 +27,10 @@ def extract_video_info(video_path):
         fps = reader.get_meta_data()['fps']
         num_frames = reader.get_length()
         reader.close()
-        if num_frames == float('inf') or num_frames < 1:
-            print(f"Warning: Could not determine valid number of frames for {video_path}. Got {num_frames}.")
-            return fps, None
         return fps, num_frames
     except Exception as e:
         print(f"Error loading video {video_path}: {e}")
-        return None, None
+        raise ValueError(f"Failed to load video: {video_path}")
 
 def extract_frames(video, seconds, fps, start_frame, num_frames):
     frames_to_extract = int(fps * seconds)
@@ -123,34 +120,25 @@ if __name__ == "__main__":
         )
         return result
 
+    # Iterating over video frames, processing one window at a time:
     try:
+        fps, num_frames = extract_video_info(args.video_path)
         full_vid = read_video_from_path(args.video_path)
         
         if full_vid is None or len(full_vid) == 0:
             raise ValueError("Failed to load video or video is empty")
-        
-        num_frames = len(full_vid)
-        print(f"Successfully loaded video with {num_frames} frames.")
-        
-        try:
-            fps, metadata_frames = extract_video_info(args.video_path)
-            if fps is not None:
-                print(f"Video FPS: {fps}")
-            if metadata_frames is not None and metadata_frames != num_frames:
-                print(f"Note: Metadata reported {metadata_frames} frames, but actual video has {num_frames} frames.")
-        except Exception as e:
-            print(f"Could not extract video metadata, but video loaded successfully: {e}")
-            fps = None
-            
     except Exception as e:
         print(f"Error processing video {args.video_path}: {e}")
         print("Skipping this video due to corruption or loading issues.")
         exit(1)
     
+    # Calculate center coordinates for queries
     frame_height, frame_width = full_vid[0].shape[:2]
     center_x = frame_width / 2.0
     center_y = frame_height / 2.0
     
+    # Set queries to center of video [time, x coord, y coord]
+    # Model expects (B, N, D) where B=batch, N=num_queries, D=3 for [time, x, y]
     queries = torch.tensor([
         [[0., center_x, center_y]]
     ])
@@ -159,50 +147,77 @@ if __name__ == "__main__":
     print(f"Video dimensions: {frame_width}x{frame_height}")
     print(f"Center coordinates: ({center_x}, {center_y})")
     
-    if not isinstance(num_frames, int) or num_frames <= 1:
-        exit(1)
-
-    seq_name = os.path.basename(args.video_path)
-    vis = Visualizer(save_dir="saved_videos", pad_value=120, linewidth=3)
-    
-    print("Processing video in 2-frame pairs...")
-    
-    for i in range(num_frames - 1):
-        start_frame = i
-        end_frame = i + 2
+    start_frame = 0
+    while start_frame < num_frames:
+        print(f"Processing frames from {start_frame} to {min(start_frame + int(fps * FRAMES_INTERVAL), num_frames)}")
+        video, end_frame = extract_frames(full_vid, FRAMES_INTERVAL, fps, start_frame, num_frames)
         
-        print(f"Processing frames {start_frame} to {end_frame-1}")
+        # Skip if no frames to process
+        if end_frame <= start_frame or len(video) == 0:
+            print(f"No frames to process in segment {start_frame} to {end_frame}, skipping...")
+            break
         
-        video_chunk = torch.tensor(full_vid[start_frame:end_frame], device=DEFAULT_DEVICE).float().permute(0, 3, 1, 2)[None]
-        
-        result = model(
-            video_chunk,
-            is_first_step=True,
-            grid_size=args.grid_size,
-            grid_query_frame=args.grid_query_frame,
-            queries=queries,
-        )
-        
-        pred_tracks, pred_visibility = model(
-            video_chunk,
-            is_first_step=False,
-            grid_size=args.grid_size,
-            grid_query_frame=args.grid_query_frame,
-            queries=queries,
-        )
-        
-        if pred_tracks is not None:
-            print(f"Tracks computed for frames {start_frame}-{end_frame-1}")
-            
-            vis.visualize(
-                video_chunk, 
-                pred_tracks, 
-                pred_visibility, 
-                query_frame=args.grid_query_frame, 
-                filename=f"{seq_name}_frames_{start_frame}_{end_frame-1}.mp4"
-            )
-            print(f"Video saved: saved_videos/{seq_name}_frames_{start_frame}_{end_frame-1}.mp4")
+        if hasattr(model, 'reset'):
+            model.reset()
         else:
-            print(f"Warning: No tracks generated for frames {start_frame}-{end_frame-1}")
+            # Reinitialize the model's online processing state properly
+            if hasattr(model, 'model') and hasattr(model.model, 'init_video_online_processing'):
+                model.model.init_video_online_processing()
+            if hasattr(model, 'queries'):
+                delattr(model, 'queries')
+            if hasattr(model, 'N'):
+                delattr(model, 'N')
+            if hasattr(model, 'model') and hasattr(model.model, 'reset'):
+                model.model.reset()
+        
+        print("Model state reset for this segment.")
+        
+        window_frames = []
+        
+        is_first_step = True
+        
+        for i, frame in enumerate(video):
+            if i % model.step == 0 and i != 0:
+                print(f"Calling _process_step at frame {i} (is_first_step={is_first_step})")
+                pred_tracks, pred_visibility = _process_step(
+                    window_frames,
+                    is_first_step,
+                    grid_size=args.grid_size,
+                    grid_query_frame=args.grid_query_frame,
+                    queries=queries,
+                )
+                print(f"_process_step completed at frame {i}")
+                is_first_step = False
+            window_frames.append(frame)
+        
+        if len(window_frames) > 0:
+            print("Calling _process_step for final frames...")
+            pred_tracks, pred_visibility = _process_step(
+                window_frames,
+                is_first_step,
+                grid_size=args.grid_size,
+                grid_query_frame=args.grid_query_frame,
+                queries=queries,
+            )
+            print("_process_step for final frames completed.")
 
-    print(f"Processed all {num_frames - 1} frame pairs.")
+        print("Tracks are computed")
+
+        # save a video with predicted tracks
+        seq_name = args.video_path.split("/")[-1]
+        print("Preparing video tensor for visualization...")
+        video_tensor = torch.tensor(np.stack(window_frames), device=DEFAULT_DEVICE).permute(
+            0, 3, 1, 2
+        )[None]
+        print("Saving video with predicted tracks...")
+        vis = Visualizer(save_dir="/mas/robots/prg-egocom/EGOCOM/720p/5min_parts/dataset/saved_videos_2", pad_value=120, linewidth=3)
+        vis.visualize(
+            video_tensor, pred_tracks, pred_visibility, query_frame=args.grid_query_frame, filename=f"{seq_name}_{start_frame}_{end_frame}.mp4"
+        )
+        print(f"Video saved to /mas/robots/prg-egocom/EGOCOM/720p/5min_parts/dataset/saved_videos/{seq_name}_{start_frame}_{end_frame}.mp4")
+        
+        # Update start_frame for next iteration
+        start_frame = end_frame
+        print(f"Processed frames from {start_frame} to {end_frame}")
+
+    print(f"Processed all frames from 0 to {num_frames}")

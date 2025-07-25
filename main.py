@@ -225,6 +225,7 @@ if __name__ == "__main__":
             i = 0
             while True:
                 ret, cv_frame = cap.read()
+                if i < 7: continue
                 if not ret:
                     break
                 red_circle = detect_red_circle(cv_frame)
@@ -246,8 +247,8 @@ if __name__ == "__main__":
                         )
                         print(f"Truncated video saved to {os.path.join(save_dir, new_output_filename)}")
                         
-                        os.remove(os.path.join(save_dir, output_filename))
-                        print(f"Removed original file: {output_filename}")
+                        os.remove(os.path.join(save_dir, output_filename + ".mp4"))
+                        print(f"Removed original file: {output_filename + ".mp4"}")
                     break
                 i += 1
             cap.release()

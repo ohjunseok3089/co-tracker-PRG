@@ -221,8 +221,8 @@ if __name__ == "__main__":
             )
             # Check for red circle detection in the saved video and truncate if necessary
             cap = cv2.VideoCapture(os.path.join(save_dir, output_filename))
+            print(f"[DEBUG] Opened video: {os.path.join(save_dir, output_filename)}, cap.isOpened() = {cap.isOpened()}")
             actual_end_frame = end_frame
-            
             i = 0
             while True:
                 ret, cv_frame = cap.read()

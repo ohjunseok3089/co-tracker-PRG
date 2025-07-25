@@ -225,7 +225,9 @@ if __name__ == "__main__":
             i = 0
             while True:
                 ret, cv_frame = cap.read()
-                if i < 7: continue
+                if i < 7: 
+                    i += 1
+                    continue
                 if not ret:
                     break
                 red_circle = detect_red_circle(cv_frame)

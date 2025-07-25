@@ -203,20 +203,31 @@ if __name__ == "__main__":
 
         print("Tracks are computed")
 
-        # save a video with predicted tracks
-        seq_name = os.path.splitext(os.path.basename(args.video_path))[0]
-        print("Preparing video tensor for visualization...")
-        video_tensor = torch.tensor(np.stack(window_frames), device=DEFAULT_DEVICE).permute(
-            0, 3, 1, 2
-        )[None]
-        print("Saving video with predicted tracks...")
-        save_dir = "/mas/robots/prg-egocom/EGOCOM/720p/5min_parts/dataset/saved_videos_2"
-        vis = Visualizer(save_dir=save_dir, pad_value=120, linewidth=3)
-        output_filename = f"{seq_name}_{start_frame}_{end_frame}.mp4"
-        vis.visualize(
-            video_tensor, pred_tracks, pred_visibility, query_frame=args.grid_query_frame, filename=output_filename
-        )
-        print(f"Video saved to {os.path.join(save_dir, output_filename)}")
+        # Debugging lines
+        print(f"DEBUG: pred_tracks is None: {pred_tracks is None}")
+        if pred_tracks is not None:
+            print(f"DEBUG: pred_tracks.shape: {pred_tracks.shape}")
+        print(f"DEBUG: pred_visibility is None: {pred_visibility is None}")
+        if pred_visibility is not None:
+            print(f"DEBUG: pred_visibility.shape: {pred_visibility.shape}")
+
+        if pred_tracks is not None:
+            # save a video with predicted tracks
+            seq_name = os.path.splitext(os.path.basename(args.video_path))[0]
+            print("Preparing video tensor for visualization...")
+            video_tensor = torch.tensor(np.stack(window_frames), device=DEFAULT_DEVICE).permute(
+                0, 3, 1, 2
+            )[None]
+            print("Saving video with predicted tracks...")
+            save_dir = "/mas/robots/prg-egocom/EGOCOM/720p/5min_parts/dataset/saved_videos_2"
+            vis = Visualizer(save_dir=save_dir, pad_value=120, linewidth=3)
+            output_filename = f"{seq_name}_{start_frame}_{end_frame}.mp4"
+            vis.visualize(
+                video_tensor, pred_tracks, pred_visibility, query_frame=args.grid_query_frame, filename=output_filename
+            )
+            print(f"Video saved to {os.path.join(save_dir, output_filename)}")
+        else:
+            print("No tracks were predicted for this segment, skipping visualization.")
         
         # Update start_frame for next iteration
         start_frame = end_frame

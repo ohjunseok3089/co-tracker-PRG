@@ -150,7 +150,6 @@ if __name__ == "__main__":
     
     start_frame = 0
     
-    cap = cv2.VideoCapture(args.video_path)
     while start_frame < num_frames:
         print(f"Processing frames from {start_frame} to {min(start_frame + int(fps * FRAMES_INTERVAL), num_frames)}")
         video, end_frame = extract_frames(full_vid, FRAMES_INTERVAL, fps, start_frame, num_frames)
@@ -180,12 +179,6 @@ if __name__ == "__main__":
         is_first_step = True
         
         for i, frame in enumerate(video):
-            ret, cv_frame = cap.read()
-                
-            if ret and detect_red_circle(cv_frame) is None:
-                print(f"Red circle not detected in frame {start_frame + i}. Resetting.")
-                start_frame = start_frame + i
-                break
             if i % model.step == 0 and i != 0:
                 print(f"Calling _process_step at frame {i} (is_first_step={is_first_step})")
                 pred_tracks, pred_visibility = _process_step(
@@ -227,11 +220,44 @@ if __name__ == "__main__":
                 video_tensor, pred_tracks, pred_visibility, query_frame=args.grid_query_frame, filename=output_filename
             )
             print(f"Video saved to {os.path.join(save_dir, output_filename)}")
+            
+            # Check for red circle detection in the saved video and truncate if necessary
+            cap = cv2.VideoCapture(os.path.join(save_dir, output_filename))
+            actual_end_frame = end_frame
+            
+            i = 0
+            while True:
+                ret, cv_frame = cap.read()
+                if not ret:
+                    break
+                if detect_red_circle(cv_frame) is None:
+                    print(f"Red circle not detected in frame {start_frame + i}. Truncating video backward.")
+                    actual_end_frame = start_frame + i
+                    
+                    frames_to_keep = actual_end_frame - start_frame
+                    if frames_to_keep > 0:
+                        truncated_window_frames = window_frames[:frames_to_keep]
+                        print(f"Truncated window_frames to {frames_to_keep} frames (up to frame {actual_end_frame})")
+                        
+                        truncated_video_tensor = torch.tensor(np.stack(truncated_window_frames), device=DEFAULT_DEVICE).permute(
+                            0, 3, 1, 2
+                        )[None]
+                        new_output_filename = f"{seq_name}_{start_frame}_{actual_end_frame}.mp4"
+                        vis.visualize(
+                            truncated_video_tensor, pred_tracks, pred_visibility, query_frame=args.grid_query_frame, filename=new_output_filename
+                        )
+                        print(f"Truncated video saved to {os.path.join(save_dir, new_output_filename)}")
+                        
+                        os.remove(os.path.join(save_dir, output_filename))
+                        print(f"Removed original file: {output_filename}")
+                    break
+                i += 1
+            cap.release()
+            
+            start_frame = actual_end_frame
         else:
             print("No tracks were predicted for this segment, skipping visualization.")
-        
-        # Update start_frame for next iteration
-        start_frame = end_frame
+            start_frame = end_frame
         print(f"Processed frames from {start_frame} to {end_frame}")
 
     print(f"Processed all frames from 0 to {num_frames}")

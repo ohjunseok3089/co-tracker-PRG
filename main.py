@@ -235,7 +235,7 @@ if __name__ == "__main__":
                     print(f"Red circle not detected in frame {start_frame + i}. Truncating video backward.")
                     actual_end_frame = start_frame + i - 7
                     
-                    frames_to_keep = actual_end_frame - start_frame + 7
+                    frames_to_keep = actual_end_frame - start_frame
                     if frames_to_keep > 0:
                         truncated_window_frames = window_frames[:frames_to_keep]
                         print(f"Truncated window_frames to {frames_to_keep} frames (up to frame {actual_end_frame})")

@@ -205,7 +205,7 @@ if __name__ == "__main__":
 
         print("Tracks are computed")
 
-        if pred_tracks is not None:
+        if pred_tracks is not None: 
             # save a video with predicted tracks
             seq_name = os.path.splitext(os.path.basename(args.video_path))[0]
             print("Preparing video tensor for visualization...")
@@ -215,12 +215,10 @@ if __name__ == "__main__":
             print("Saving video with predicted tracks...")
             save_dir = "/mas/robots/prg-egocom/EGOCOM/720p/5min_parts/dataset/saved_videos_2"
             vis = Visualizer(save_dir=save_dir, pad_value=120, linewidth=3)
-            output_filename = f"{seq_name}_{start_frame}_{end_frame}.mp4"
+            output_filename = f"{seq_name}_{start_frame}_{end_frame}"
             vis.visualize(
                 video_tensor, pred_tracks, pred_visibility, query_frame=args.grid_query_frame, filename=output_filename
             )
-            print(f"Video saved to {os.path.join(save_dir, output_filename)}")
-            
             # Check for red circle detection in the saved video and truncate if necessary
             cap = cv2.VideoCapture(os.path.join(save_dir, output_filename))
             actual_end_frame = end_frame
@@ -230,7 +228,8 @@ if __name__ == "__main__":
                 ret, cv_frame = cap.read()
                 if not ret:
                     break
-                if detect_red_circle(cv_frame) is None:
+                red_circle = detect_red_circle(cv_frame)
+                if red_circle is None:
                     print(f"Red circle not detected in frame {start_frame + i}. Truncating video backward.")
                     actual_end_frame = start_frame + i
                     

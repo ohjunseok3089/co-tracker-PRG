@@ -36,6 +36,7 @@ def process_video_past_frame_prediction(video_path, output_video_path=None, outp
         
         vis_frame = frame.copy()
         red_circle = detect_red_circle(frame) 
+        print(f"[DEBUG] Frame {frame_idx}: red_circle = {red_circle}")
         
         if red_circle is not None:
             curr_red_pos = (float(red_circle[0]), float(red_circle[1]))

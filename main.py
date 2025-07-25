@@ -149,6 +149,8 @@ if __name__ == "__main__":
     print(f"Center coordinates: ({center_x}, {center_y})")
     
     start_frame = 0
+    
+    cap = cv2.VideoCapture(args.video_path)
     while start_frame < num_frames:
         print(f"Processing frames from {start_frame} to {min(start_frame + int(fps * FRAMES_INTERVAL), num_frames)}")
         video, end_frame = extract_frames(full_vid, FRAMES_INTERVAL, fps, start_frame, num_frames)
@@ -176,13 +178,13 @@ if __name__ == "__main__":
         window_frames = []
         
         is_first_step = True
+        
         for i, frame in enumerate(video):
-            if detect_red_circle(frame) is None:
+            ret, cv_frame = cap.read()
+            if detect_red_circle(cv_frame) is None:
                 print(f"Red circle not detected in frame {start_frame + i}. Resetting.")
                 start_frame = start_frame + i
                 break
-        
-        for i, frame in enumerate(video):
             if i % model.step == 0 and i != 0:
                 print(f"Calling _process_step at frame {i} (is_first_step={is_first_step})")
                 pred_tracks, pred_visibility = _process_step(

@@ -14,6 +14,7 @@ import cv2
 import imageio
 
 from cotracker.utils.visualizer import Visualizer, read_video_from_path
+from track_red import detect_red_circle
 from cotracker.predictor import CoTrackerOnlinePredictor
 
 DEFAULT_DEVICE = (
@@ -175,6 +176,11 @@ if __name__ == "__main__":
         window_frames = []
         
         is_first_step = True
+        for i, frame in enumerate(video):
+            if detect_red_circle(frame) is None:
+                print(f"Red circle not detected in frame {start_frame + i}. Resetting.")
+                start_frame = start_frame + i
+                break
         
         for i, frame in enumerate(video):
             if i % model.step == 0 and i != 0:
@@ -202,26 +208,6 @@ if __name__ == "__main__":
             print("_process_step for final frames completed.")
 
         print("Tracks are computed")
-
-        # Debugging lines
-        print(f"DEBUG: pred_tracks is None: {pred_tracks is None}")
-        if pred_tracks is not None:
-            print(f"DEBUG: pred_tracks.shape: {pred_tracks.shape}")
-
-            # Check for initial frozen frames
-            frozen_frames_count = 0
-            tracks_data = pred_tracks.squeeze(0)
-            if tracks_data.shape[0] > 1:
-                first_frame_tracks = tracks_data[0]
-                for i in range(1, tracks_data.shape[0]):
-                    if torch.all(tracks_data[i] == first_frame_tracks):
-                        frozen_frames_count += 1
-                    else:
-                        break
-                print(f"DEBUG: Found {frozen_frames_count + 1} initial frozen frames.")
-        print(f"DEBUG: pred_visibility is None: {pred_visibility is None}")
-        if pred_visibility is not None:
-            print(f"DEBUG: pred_visibility.shape: {pred_visibility.shape}")
 
         if pred_tracks is not None:
             # save a video with predicted tracks

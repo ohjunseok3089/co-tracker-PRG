@@ -248,7 +248,7 @@ if __name__ == "__main__":
                         print(f"Truncated video saved to {os.path.join(save_dir, new_output_filename)}")
                         
                         os.remove(os.path.join(save_dir, output_filename + ".mp4"))
-                        print(f"Removed original file: {output_filename + ".mp4"}")
+                        print(f"Removed original file: {output_filename}")
                     break
                 i += 1
             cap.release()
